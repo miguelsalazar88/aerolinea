@@ -3,7 +3,7 @@ package modelo;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class SistemaSingleton implements Serializable {
+public class SistemaSingleton implements Serializable{
 
     private ArrayList<Usuario> usuarios;
     private ArrayList<Aerolinea> aerolineas;
