@@ -42,7 +42,23 @@ public class VentanaLogin extends JFrame {
 
     public void setController(ControllerLogin c){
         controller = c;
+        this.iniciarSesionButton.addActionListener(this.controller);
+        this.registrarseButton.addActionListener(this.controller);
     }
 
+    public String getUsernameField(){
+        return usuarioTextField.getText();
+    }
 
+    public String getPasswordField(){
+        return contrasenaPasswordField.getText();
+    }
+
+    public JButton getIniciarSesionButton() {
+        return iniciarSesionButton;
+    }
+
+    public JButton getRegistrarseButton() {
+        return registrarseButton;
+    }
 }
