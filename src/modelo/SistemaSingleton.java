@@ -36,4 +36,26 @@ public class SistemaSingleton implements Serializable{
     public ArrayList<Aerolinea> getAerolineas() {
         return aerolineas;
     }
+
+    public Usuario loginCheck(String username, String password) {
+        Usuario user = null;
+        for (Usuario u: usuarios) {
+            if (u.username == username){
+                if (u.password == password){
+                    user = u;
+                }
+            }
+        }
+        return user;
+    }
+
+    public boolean usuarioExiste(String username){
+        boolean usuarioExiste = false;
+        for (Usuario u: usuarios) {
+            if (u.username == username){
+                usuarioExiste = true;
+            }
+        }
+        return usuarioExiste;
+    }
 }
