@@ -1,8 +1,9 @@
 package modelo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Aerolinea {
+public class Aerolinea implements Serializable {
 
     private ArrayList<Avion> aviones;
     private ArrayList<Empleado> empleados;

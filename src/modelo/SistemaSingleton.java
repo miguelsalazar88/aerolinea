@@ -29,4 +29,11 @@ public class SistemaSingleton implements Serializable{
         this.aerolineas.add(a);
     }
 
+    public ArrayList<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public ArrayList<Aerolinea> getAerolineas() {
+        return aerolineas;
+    }
 }

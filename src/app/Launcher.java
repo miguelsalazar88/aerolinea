@@ -1,16 +1,14 @@
 package app;
 
 import controller.ControllerLogin;
-import modelo.SistemaSingleton;
+import modelo.*;
 import vista.VentanaLogin;
+
+import java.util.ArrayList;
 
 public class Launcher {
     public static void main(String[] args) {
-
-        SistemaSingleton sistema = SistemaSingleton.getInstance();
-        VentanaLogin ventanaLogin = new VentanaLogin();
-        ControllerLogin controllerLogin = new ControllerLogin(ventanaLogin, sistema);
-
+        
     }
 
 }

@@ -1,6 +1,8 @@
 package modelo;
 
-public abstract class Avion {
+import java.io.Serializable;
+
+public abstract class Avion implements Serializable {
 
     protected int id;
     protected String marca;

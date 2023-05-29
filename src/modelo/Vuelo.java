@@ -1,8 +1,9 @@
 package modelo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public abstract class Vuelo {
+public abstract class Vuelo implements Serializable {
 
     protected int idVuelo;
     protected Avion avion;
