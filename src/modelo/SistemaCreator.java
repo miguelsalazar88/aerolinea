@@ -28,6 +28,9 @@ public class SistemaCreator {
     }
 
     public static ArrayList<Aerolinea> createAerolineas(){
+        Aerolinea avianca = new Aerolinea("Avianca");
+        Aerolinea latam = new Aerolinea("Latam");
+        Aerolinea viva = new Aerolinea("Viva");
         return null;
     }
 

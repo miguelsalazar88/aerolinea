@@ -5,11 +5,14 @@ import java.util.ArrayList;
 
 public class Aerolinea implements Serializable {
 
+    private String nombre;
+    private Empleado owner;
     private ArrayList<Avion> aviones;
     private ArrayList<Empleado> empleados;
     private ArrayList<Vuelo> vuelos;
 
-    public Aerolinea(ArrayList<Avion> aviones) {
+    public Aerolinea(String nombre) {
+        this.nombre = nombre;
         this.aviones = new ArrayList<Avion>();
         this.empleados = new ArrayList<Empleado>();
         this.vuelos = new ArrayList<Vuelo>();
