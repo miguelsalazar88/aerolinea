@@ -7,11 +7,17 @@ public class SistemaSingleton implements Serializable{
 
     private ArrayList<Usuario> usuarios;
     private ArrayList<Aerolinea> aerolineas;
+    private ArrayList<Ciudad> ciudades;
     private static SistemaSingleton instancia;
 
     private SistemaSingleton(){
         this.usuarios = new ArrayList<Usuario>();
         this.aerolineas = new ArrayList<Aerolinea>();
+        this.ciudades = createCiudades();
+    }
+
+    private ArrayList<Ciudad> createCiudades() {
+        return null;
     }
 
     public static SistemaSingleton getInstance(){
