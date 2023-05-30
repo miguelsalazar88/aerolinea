@@ -22,4 +22,17 @@ public abstract class Vuelo implements Serializable {
         this.tripulacion = tripulacion;
         this.ubicacion = origen.getCoordenadas();
     }
+
+    public void actualizarUbicacion() {
+        int deltaX = destino.getCoordenadas().getX() - ubicacion.getX();
+        int deltaY = destino.getCoordenadas().getY() - ubicacion.getY();
+
+        if (deltaX != 0) {
+            int pasoX = deltaX / Math.abs(deltaX); // Calcula el paso en el eje X
+            ubicacion = new Coordenadas(ubicacion.getX() + pasoX, ubicacion.getY());
+        } else if (deltaY != 0) {
+            int pasoY = deltaY / Math.abs(deltaY); // Calcula el paso en el eje Y
+            ubicacion = new Coordenadas(ubicacion.getX(), ubicacion.getY() + pasoY);
+        }
+    }
 }

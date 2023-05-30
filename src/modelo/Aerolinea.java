@@ -11,8 +11,9 @@ public class Aerolinea implements Serializable {
     private ArrayList<Empleado> empleados;
     private ArrayList<Vuelo> vuelos;
 
-    public Aerolinea(String nombre) {
+    public Aerolinea(String nombre, Empleado owner) {
         this.nombre = nombre;
+        this.owner = owner;
         this.aviones = new ArrayList<Avion>();
         this.empleados = new ArrayList<Empleado>();
         this.vuelos = new ArrayList<Vuelo>();
