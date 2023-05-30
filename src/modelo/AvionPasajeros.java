@@ -8,6 +8,7 @@ public class AvionPasajeros extends Avion{
         this.cupos = cupos;
     }
 
-
-
+    public int getCupos() {
+        return cupos;
+    }
 }
