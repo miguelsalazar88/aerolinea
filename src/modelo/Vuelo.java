@@ -13,13 +13,12 @@ public abstract class Vuelo implements Serializable {
     protected Coordenadas ubicacion;
     protected ArrayList<Empleado> tripulacion;
 
-    public Vuelo(int idVuelo, Aerolinea aerolinea, Avion avion, Ciudad origen, Ciudad destino, ArrayList<Empleado> tripulacion) {
+    public Vuelo(int idVuelo, Aerolinea aerolinea, Avion avion, Ciudad origen, Ciudad destino) {
         this.idVuelo = idVuelo;
         this.aerolinea = aerolinea;
         this.avion = avion;
         this.origen = origen;
         this.destino = destino;
-        this.tripulacion = tripulacion;
         this.ubicacion = origen.getCoordenadas();
     }
 
@@ -34,5 +33,9 @@ public abstract class Vuelo implements Serializable {
             int pasoY = deltaY / Math.abs(deltaY); // Calcula el paso en el eje Y
             ubicacion = new Coordenadas(ubicacion.getX(), ubicacion.getY() + pasoY);
         }
+    }
+
+    public Coordenadas getUbicacion() {
+        return ubicacion;
     }
 }

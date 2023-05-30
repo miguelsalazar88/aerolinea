@@ -23,6 +23,7 @@ public class Launcher {
 
         VentanaMapa ventanaMapa = new VentanaMapa();
         ControllerMapa controllerMapa = new ControllerMapa(ventanaMapa,sistema);
+        ventanaMapa.start();
 
     }
 

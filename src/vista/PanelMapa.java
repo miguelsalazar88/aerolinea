@@ -2,7 +2,9 @@ package vista;
 
 import controller.ControllerMapa;
 import modelo.Ciudad;
+import modelo.SistemaCreator;
 import modelo.SistemaSingleton;
+import modelo.Vuelo;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -14,6 +16,8 @@ import java.io.IOException;
 public class PanelMapa extends JPanel {
     private BufferedImage image;
     private SistemaSingleton sistema;
+
+    private Vuelo v = SistemaCreator.pruebasVuelo();
 
     public PanelMapa(){
         this.sistema = SistemaSingleton.getInstance();
@@ -36,6 +40,9 @@ public class PanelMapa extends JPanel {
             g.setColor(Color.RED);
             g.fillOval(c.getCoordenadas().getX(), c.getCoordenadas().getY(),10,10);
         }
+        g.setColor(Color.BLUE);
+        g.fillOval(v.getUbicacion().getX(),v.getUbicacion().getY(),10,10);
+        v.actualizarUbicacion();
     }
 
 }

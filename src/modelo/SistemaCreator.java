@@ -31,4 +31,16 @@ public class SistemaCreator {
         return null;
     }
 
+    public static Vuelo pruebasVuelo(){
+        int idVuelo = 100;
+        Avion boeing = new AvionPasajeros(100,"Boeing", "Comercial",100);
+        Aerolinea avianca = new Aerolinea("avianca",new Empleado("a","a","a","a","a"));
+        Ciudad origen = new Ciudad("Bogota", new Coordenadas(171,264));
+        Ciudad destino = new Ciudad("Riohacha",new Coordenadas(210,41));
+
+        VueloComercial vuelo = new VueloComercial(idVuelo,avianca,boeing,origen,destino);
+        return vuelo;
+
+    }
+
 }

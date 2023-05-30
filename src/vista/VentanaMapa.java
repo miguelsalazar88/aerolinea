@@ -4,6 +4,8 @@ import controller.ControllerMapa;
 import modelo.Ciudad;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class VentanaMapa extends JFrame {
@@ -26,7 +28,13 @@ public class VentanaMapa extends JFrame {
     }
 
     public void start(){
-        ArrayList<Ciudad> ciudades = this.controller.getSistema().getCiudades();
+        Timer timer = new Timer(200, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                panel.repaint();
+            }
+        });
+        timer.start();
     }
 
 
