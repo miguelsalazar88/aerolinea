@@ -1,8 +1,10 @@
 package app;
 
 import controller.ControllerLogin;
+import controller.ControllerMapa;
 import modelo.*;
 import vista.VentanaLogin;
+import vista.VentanaMapa;
 import vista.VentanaRegistro;
 
 import java.util.ArrayList;
@@ -15,9 +17,12 @@ public class Launcher {
         if (sistema == null){
             sistema = SistemaSingleton.getInstance();
         }
+//
+//        VentanaLogin ventanaLogin = new VentanaLogin();
+//        ControllerLogin contollerLogin = new ControllerLogin(ventanaLogin,sistema);
 
-        VentanaLogin ventanaLogin = new VentanaLogin();
-        ControllerLogin contollerLogin = new ControllerLogin(ventanaLogin,sistema);
+        VentanaMapa ventanaMapa = new VentanaMapa();
+        ControllerMapa controllerMapa = new ControllerMapa(ventanaMapa,sistema);
 
     }
 
