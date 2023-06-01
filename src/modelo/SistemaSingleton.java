@@ -34,6 +34,16 @@ public class SistemaSingleton {
         this.ciudades.add(c);
     }
 
+    public boolean usuarioExiste(String username){
+        boolean usuarioExiste = false;
+        for (Usuario u : usuarios) {
+            if (u.username == username){
+                usuarioExiste = true;
+            }
+        }
+        return usuarioExiste;
+    }
+
     public Usuario login(){
         return null;
     }
