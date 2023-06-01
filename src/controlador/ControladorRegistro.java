@@ -33,6 +33,7 @@ public class ControladorRegistro extends Controlador{
                 salario = Integer.parseInt(vista.getSalarioField().getText());
             }
 
+
             //Se crea el usuario con el Factory Method y se registra en el sistema
             Usuario usuario = UsuarioFactory.crearUsuario(tipoUsuario, username, password, nombre, apellido,cargo, salario);
             sistema.registarUsuario(usuario);
