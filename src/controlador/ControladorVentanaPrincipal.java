@@ -1,10 +1,7 @@
 package controlador;
 
 import modelo.SistemaSingleton;
-import vista.Ventana;
-import vista.VentanaMapa;
-import vista.VentanaPrincipal;
-import vista.VentanaRegistro;
+import vista.*;
 
 import java.awt.event.ActionEvent;
 
@@ -26,6 +23,7 @@ public class ControladorVentanaPrincipal extends Controlador{
         }
         if(e.getSource().equals(vista.getBtnUsuario())){
             System.out.println("Usuario");
+            VentanaLogin ventanaLogin = new VentanaLogin("Login");
         }
         if(e.getSource().equals(vista.getBtnAerolinea())){
             System.out.println("Aerolinea");

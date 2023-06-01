@@ -16,6 +16,7 @@ public class VentanaPrincipal extends Ventana{
         super(title);
         setSize(600,600);
         setLayout(new GridLayout(2,2));
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
     @Override
