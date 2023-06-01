@@ -2,6 +2,7 @@ package controlador;
 
 import modelo.SistemaSingleton;
 import vista.Ventana;
+import vista.VentanaMapa;
 import vista.VentanaPrincipal;
 import vista.VentanaRegistro;
 
@@ -20,7 +21,8 @@ public class ControladorVentanaPrincipal extends Controlador{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource().equals(vista.getBtnMapa())){
-            System.out.println("Ver Mapa");
+            VentanaMapa ventanaMapa = new VentanaMapa("Mapa");
+            ventanaMapa.getPanel().start();
         }
         if(e.getSource().equals(vista.getBtnUsuario())){
             System.out.println("Usuario");
