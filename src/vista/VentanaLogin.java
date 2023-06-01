@@ -52,9 +52,5 @@ public class VentanaLogin extends Ventana{
     public void setController(Controlador c) {
         // Aquí puedes asignar un controlador si es necesario
     }
-
-    public static void main(String[] args) {
-        VentanaLogin ventanaLogin = new VentanaLogin("Login");
-        ventanaLogin.setVisible(true);
-    }
+    
 }
