@@ -24,6 +24,7 @@ public class ControladorVentanaPrincipal extends Controlador{
         if(e.getSource().equals(vista.getBtnUsuario())){
             System.out.println("Usuario");
             VentanaLogin ventanaLogin = new VentanaLogin("Login");
+            ControladorLoginUsuario controladorLoginUsuario = new ControladorLoginUsuario(sistema,ventanaLogin);
         }
         if(e.getSource().equals(vista.getBtnAerolinea())){
             System.out.println("Aerolinea");

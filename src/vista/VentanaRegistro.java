@@ -32,7 +32,6 @@ public class VentanaRegistro extends Ventana {
 
     public VentanaRegistro(String title) throws HeadlessException {
         super(title);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(400,400);
     }
 

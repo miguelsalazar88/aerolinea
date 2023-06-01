@@ -44,8 +44,14 @@ public class SistemaSingleton {
         return usuarioExiste;
     }
 
-    public Usuario login(){
-        return null;
+    public Usuario login(String username, String password){
+        Usuario usuario = null;
+        for (Usuario u : usuarios) {
+            if (u.getUsername().equals(username) && u.getPassword().equals(password)){
+                usuario = u;
+            }
+        }
+        return usuario;
     }
 
     public ArrayList<Vuelo> getVuelos(){
