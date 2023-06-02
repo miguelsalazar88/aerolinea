@@ -46,7 +46,23 @@ public class Aerolinea {
         return empleados;
     }
 
-    public ArrayList<Vuelo> getVuelos() {
-        return vuelos;
+    public ArrayList<Vuelo> getVuelosPasajeros() {
+        ArrayList<Vuelo> vuelosPasajeros = new ArrayList<Vuelo>();
+        for (Vuelo v: vuelos) {
+            if(v instanceof VueloComercial){
+                vuelosPasajeros.add(v);
+            }
+        }
+        return vuelosPasajeros;
+    }
+
+    public ArrayList<Vuelo> getVuelosCarga() {
+        ArrayList<Vuelo> vuelosPasajeros = new ArrayList<Vuelo>();
+        for (Vuelo v: vuelos) {
+            if(v instanceof VueloCarga){
+                vuelosPasajeros.add(v);
+            }
+        }
+        return vuelosPasajeros;
     }
 }
