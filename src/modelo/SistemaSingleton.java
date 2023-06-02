@@ -12,7 +12,7 @@ public class SistemaSingleton {
     private SistemaSingleton(){
         this.usuarios = new ArrayList<Usuario>();
         this.aerolineas = new ArrayList<Aerolinea>();
-        this.ciudades = Constants.getCiudades();
+        this.ciudades = Utils.getCiudades();
     }
 
     public static SistemaSingleton getInstance(){
@@ -78,5 +78,9 @@ public class SistemaSingleton {
 
     public ArrayList<Ciudad> getCiudades() {
         return ciudades;
+    }
+
+    public void addUsuarios(ArrayList<Usuario> arrUsuarios){
+        usuarios.addAll(arrUsuarios);
     }
 }

@@ -6,7 +6,7 @@ public class VueloComercial extends Vuelo{
 
     private Tiquete[] tiquetes;
 
-    public VueloComercial(String idVuelo, Aerolinea aerolinea, AvionPasajeros avion, Ciudad origen, Ciudad destino, Tiquete[] tiquetes) {
+    public VueloComercial(String idVuelo, Aerolinea aerolinea, AvionPasajeros avion, Ciudad origen, Ciudad destino) {
         super(idVuelo, aerolinea, avion, origen, destino);
         this.tiquetes = new Tiquete[avion.getCupos()];
     }
@@ -24,5 +24,4 @@ public class VueloComercial extends Vuelo{
         }
         return puestosDisponibles;
     }
-
 }
