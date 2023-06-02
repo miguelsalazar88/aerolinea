@@ -90,9 +90,32 @@ public class MockCreator {
         return aviones;
     }
 
-    public static ArrayList<VueloComercial> crearVuelos(Aerolinea aerolinea, ArrayList<Avion> aviones){
+    public static ArrayList<AvionCarga> crearAvionesCarga(){
+        ArrayList<AvionCarga> aviones = new ArrayList<AvionCarga>();
+        AvionCarga boeing747 = new AvionCarga(Utils.rnd.nextInt(100),"Boeing 747",
+                "Carga", Utils.rnd.nextInt(5000)+1000);
+        AvionCarga airbusA320 = new AvionCarga(Utils.rnd.nextInt(100),"AirBus A320",
+                "Carga", Utils.rnd.nextInt(5000)+1000);
+        AvionCarga boeing737 = new AvionCarga(Utils.rnd.nextInt(100),"Boeing 777",
+                "Carga", Utils.rnd.nextInt(5000)+1000);
+        AvionCarga boeing787 = new AvionCarga(Utils.rnd.nextInt(100),"Boeing 787",
+                "Carga", Utils.rnd.nextInt(5000)+1000);
+        AvionCarga airbusA380 = new AvionCarga(Utils.rnd.nextInt(100),"AirBus A380",
+                "Carga", Utils.rnd.nextInt(5000)+1000);
+
+        aviones.add(boeing747);
+        aviones.add(airbusA320);
+        aviones.add(boeing737);
+        aviones.add(boeing787);
+        aviones.add(airbusA380);
+
+        return aviones;
+    }
+
+    public static ArrayList<VueloComercial> crearVuelosComerciales(Aerolinea aerolinea, ArrayList<Avion> aviones){
         ArrayList<Ciudad> ciudades = Utils.getCiudades();
         ArrayList<VueloComercial> vuelos = new ArrayList<VueloComercial>();
+
 
         for (int i = 0; i < 10; i++) {
             String idVuelo = String.valueOf(Utils.rnd.nextInt(1000));
@@ -103,6 +126,24 @@ public class MockCreator {
                 destino = ciudades.get(Utils.rnd.nextInt(ciudades.size()));
             } while (origen.equals(destino));
             vuelos.add(new VueloComercial(idVuelo,aerolinea,avion,origen,destino));
+        }
+        return vuelos;
+    }
+
+    public static ArrayList<VueloCarga> crearVuelosCarga(Aerolinea aerolinea, ArrayList<Avion> aviones){
+        ArrayList<Ciudad> ciudades = Utils.getCiudades();
+        ArrayList<VueloCarga> vuelos = new ArrayList<VueloCarga>();
+
+
+        for (int i = 0; i < 10; i++) {
+            String idVuelo = String.valueOf(Utils.rnd.nextInt(1000));
+            AvionCarga avion = (AvionCarga) aviones.get(Utils.rnd.nextInt(aviones.size()));
+            Ciudad origen = ciudades.get(Utils.rnd.nextInt(ciudades.size()));
+            Ciudad destino;
+            do{
+                destino = ciudades.get(Utils.rnd.nextInt(ciudades.size()));
+            } while (origen.equals(destino));
+            vuelos.add(new VueloCarga(idVuelo,aerolinea,avion,origen,destino));
         }
         return vuelos;
     }
@@ -129,10 +170,18 @@ public class MockCreator {
             for (AvionPasajeros avionPasajeros: avionesPasajeros) {
                 aerolinea.agregarAvion(avionPasajeros);
             }
-            ArrayList<VueloComercial> vuelos = crearVuelos(aerolinea,aerolinea.getAviones());
-            for (VueloComercial vuelo: vuelos) {
+            ArrayList<AvionCarga> avionesCarga = crearAvionesCarga();
+
+            for (AvionCarga avionCarga: avionesCarga) {
+                aerolinea.agregarAvion(avionCarga);
+            }
+
+            ArrayList<VueloComercial> vuelosComerciales = crearVuelosComerciales(aerolinea,aerolinea.getAvionesPasajeros());
+            for (VueloComercial vuelo: vuelosComerciales) {
                 aerolinea.agregarVuelo(vuelo);
             }
+
+            ArrayList<VueloCarga> vuelosCarga = crearVuelosCarga(aerolinea,aerolinea.getAvionesCarga());
             sistema.registrarAerolinea(aerolinea);
         }
     }

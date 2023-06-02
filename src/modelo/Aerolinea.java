@@ -38,8 +38,14 @@ public class Aerolinea {
         return owner;
     }
 
-    public ArrayList<Avion> getAviones() {
-        return aviones;
+    public ArrayList<Avion> getAvionesPasajeros() {
+        ArrayList<Avion> avionesPasajeros = new ArrayList<Avion>();
+        for (Avion avion: aviones) {
+            if( avion instanceof AvionPasajeros){
+                avionesPasajeros.add(avion);
+            }
+        }
+        return avionesPasajeros;
     }
 
     public ArrayList<Empleado> getEmpleados() {
@@ -64,5 +70,15 @@ public class Aerolinea {
             }
         }
         return vuelosPasajeros;
+    }
+
+    public ArrayList<Avion> getAvionesCarga() {
+        ArrayList<Avion> avionesCarga = new ArrayList<Avion>();
+        for (Avion avion: aviones) {
+            if( avion instanceof AvionCarga){
+                avionesCarga.add(avion);
+            }
+        }
+        return avionesCarga;
     }
 }

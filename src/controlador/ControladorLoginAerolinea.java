@@ -3,6 +3,7 @@ package controlador;
 import modelo.Aerolinea;
 import modelo.SistemaSingleton;
 import modelo.Usuario;
+import vista.VentanaDashboardEmpleado;
 import vista.VentanaDashboardUsuario;
 import vista.VentanaLogin;
 
@@ -37,6 +38,7 @@ public class ControladorLoginAerolinea extends Controlador{
         }
         else{
             System.out.println("Exito");
+
         }
     }
 }
