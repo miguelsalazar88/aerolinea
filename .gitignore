@@ -1,3 +1,4 @@
+.gitignore
 # Carpeta de salida de compilación
 bin/
 obj/
