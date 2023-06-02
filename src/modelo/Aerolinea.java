@@ -34,6 +34,10 @@ public class Aerolinea {
         return nombre;
     }
 
+    public Empleado getOwner() {
+        return owner;
+    }
+
     public ArrayList<Avion> getAviones() {
         return aviones;
     }

@@ -12,6 +12,7 @@ public abstract class Usuario {
     protected ArrayList<Tiquete> tiquetes;
 
 
+
     public Usuario(String username, String password, String nombre, String apellido) {
         this.username = username;
         this.password = password;

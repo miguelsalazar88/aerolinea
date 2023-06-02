@@ -15,7 +15,7 @@ public class ImageSingleton {
     private ImageSingleton(){
         try {
             plane = ImageIO.read(new File("src/images/airplane.png"));
-            plane = resizeImage(plane, 10,10);
+            plane = resizeImage(plane, 20,20);
             map = ImageIO.read(new File("src/images/mapa.5.png"));
         } catch (IOException e){
             e.printStackTrace();

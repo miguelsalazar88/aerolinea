@@ -4,13 +4,17 @@ import controlador.Controlador;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class VentanaLogin extends Ventana{
 
     private JTextField usernameField;
     private JPasswordField passwordField;
+    private JButton loginButton;
+
+    private JLabel passwordLabel;
+    private JLabel usernameLabel;
+
+    private JPanel panel;
 
     public VentanaLogin(String title) throws HeadlessException {
         super(title);
@@ -20,23 +24,12 @@ public class VentanaLogin extends Ventana{
     public void initComponents() {
         JPanel panel = new JPanel(new GridLayout(3, 2));
 
-        JLabel usernameLabel = new JLabel("Username:");
+        panel = new JPanel(new GridLayout(3, 2));
+        usernameLabel = new JLabel("Username:");
         usernameField = new JTextField();
-
-        JLabel passwordLabel = new JLabel("Password:");
+        passwordLabel = new JLabel("Password:");
         passwordField = new JPasswordField();
-
-        JButton loginButton = new JButton("Login");
-        loginButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String username = usernameField.getText();
-                String password = new String(passwordField.getPassword());
-                // Aquí puedes agregar la lógica de verificación de inicio de sesión
-                System.out.println("Username: " + username);
-                System.out.println("Password: " + password);
-            }
-        });
+        loginButton = new JButton("Login");
 
         panel.add(usernameLabel);
         panel.add(usernameField);
@@ -50,7 +43,23 @@ public class VentanaLogin extends Ventana{
 
     @Override
     public void setController(Controlador c) {
-        // Aquí puedes asignar un controlador si es necesario
+        controller = c;
+        loginButton.addActionListener(controller);
     }
 
+
+    //Getters y Setters
+
+
+    public JTextField getUsernameField() {
+        return usernameField;
+    }
+
+    public JPasswordField getPasswordField() {
+        return passwordField;
+    }
+
+    public JButton getLoginButton() {
+        return loginButton;
+    }
 }

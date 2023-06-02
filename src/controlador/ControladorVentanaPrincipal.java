@@ -22,11 +22,12 @@ public class ControladorVentanaPrincipal extends Controlador{
             ventanaMapa.getPanel().start();
         }
         if(e.getSource().equals(vista.getBtnUsuario())){
-            System.out.println("Usuario");
             VentanaLogin ventanaLogin = new VentanaLogin("Login");
+            ControladorLoginUsuario controladorLoginUsuario = new ControladorLoginUsuario(sistema,ventanaLogin);
         }
         if(e.getSource().equals(vista.getBtnAerolinea())){
-            System.out.println("Aerolinea");
+            VentanaLogin ventanaLogin = new VentanaLogin("Aerolinea");
+            ControladorLoginAerolinea controladorLoginAerolinea = new ControladorLoginAerolinea(sistema,ventanaLogin);
         }
         if(e.getSource().equals(vista.getBtnRegistrarse())){
             VentanaRegistro ventanaRegistro = new VentanaRegistro("Registro");

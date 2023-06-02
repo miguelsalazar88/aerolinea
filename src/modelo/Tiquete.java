@@ -2,7 +2,7 @@ package modelo;
 
 public class Tiquete {
 
-    private int idTiquete;
+    private String idTiquete;
     private Pasajero owner;
     private Vuelo vuelo;
     private int precio;
@@ -74,4 +74,22 @@ public class Tiquete {
 	}
 	
 	
+
+    public Tiquete(String idTiquete, Pasajero owner, Vuelo vuelo) {
+        this.idTiquete = idTiquete;
+        this.owner = owner;
+        this.vuelo = vuelo;
+    }
+
+    public String getIdTiquete() {
+        return idTiquete;
+    }
+
+    public Pasajero getOwner() {
+        return owner;
+    }
+
+    public Vuelo getVuelo() {
+        return vuelo;
+    }
 }

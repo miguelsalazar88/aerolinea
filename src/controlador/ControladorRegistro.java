@@ -1,8 +1,8 @@
 package controlador;
 
-import modelo.SistemaSingleton;
-import modelo.Usuario;
-import modelo.UsuarioFactory;
+import modelo.*;
+import vista.VentanaDashboardEmpleado;
+import vista.VentanaDashboardUsuario;
 import vista.VentanaRegistro;
 
 import javax.swing.*;
@@ -54,6 +54,24 @@ public class ControladorRegistro extends Controlador{
                 //Se crea el usuario con el Factory Method y se registra en el sistema
                 Usuario usuario = UsuarioFactory.crearUsuario(tipoUsuario, username, password, nombre, apellido,cargo, salario);
                 sistema.registarUsuario(usuario);
+                JOptionPane.showMessageDialog(this.vista,"Usuario Registrado!","Success",JOptionPane.OK_OPTION);
+                this.vista.dispose();
+                if(usuario instanceof Pasajero){
+                    VentanaDashboardUsuario ventanaDashboardUsuario = new VentanaDashboardUsuario("Dashboard", usuario);
+                    ControladorDashboardUsuario controladorDashboardUsuario =
+                            new ControladorDashboardUsuario(sistema,ventanaDashboardUsuario);
+                }
+
+                else{
+
+                    VentanaDashboardEmpleado ventanaDashboardEmpleado =
+                            new VentanaDashboardEmpleado("Empleado",usuario);
+                    ControladorDashboardEmpleado controladorDashboardEmpleado =
+                            new ControladorDashboardEmpleado(sistema,ventanaDashboardEmpleado);
+
+                }
+
+
             }
 
         }
