@@ -27,7 +27,7 @@ public class PanelMapa extends JPanel {
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
         g.drawImage(mapa,0,0,null);
-        ArrayList<Vuelo> vuelos = SistemaSingleton.getInstance().getVuelos();
+        ArrayList<Vuelo> vuelos = SistemaSingleton.getInstance().getVuelosComerciales();
         for (Vuelo v: vuelos) {
             g.drawImage(avion, v.getUbicacion().getX(), v.getUbicacion().getY(),null);
             v.actualizarUbicacion();

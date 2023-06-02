@@ -3,6 +3,7 @@ package controlador;
 import modelo.SistemaSingleton;
 import modelo.Usuario;
 import modelo.UsuarioFactory;
+import vista.VentanaDashboardUsuario;
 import vista.VentanaRegistro;
 
 import javax.swing.*;
@@ -56,6 +57,7 @@ public class ControladorRegistro extends Controlador{
                 sistema.registarUsuario(usuario);
                 JOptionPane.showMessageDialog(this.vista,"Usuario Registrado!","Success",JOptionPane.OK_OPTION);
                 this.vista.dispose();
+                VentanaDashboardUsuario ventanaDashboardUsuario = new VentanaDashboardUsuario("Dashboard", usuario);
             }
 
         }

@@ -45,4 +45,20 @@ public abstract class Vuelo {
     public String toString() {
         return aerolinea.getNombre() + ": " + origen.getNombre() + " - " + destino.getNombre();
     }
+
+    public String getIdVuelo() {
+        return idVuelo;
+    }
+
+    public Aerolinea getAerolinea() {
+        return aerolinea;
+    }
+
+    public Ciudad getOrigen() {
+        return origen;
+    }
+
+    public Ciudad getDestino() {
+        return destino;
+    }
 }

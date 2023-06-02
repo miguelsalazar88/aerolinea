@@ -20,7 +20,6 @@ public class ControladorLoginUsuario extends Controlador{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("Buena");
         String username = this.vista.getUsernameField().getText();
         String password = this.vista.getPasswordField().getText();
 
@@ -35,9 +34,9 @@ public class ControladorLoginUsuario extends Controlador{
             // VentanaDashboardUsuario(Usuario u)
             JOptionPane.showMessageDialog(this.vista,"Login Exitoso","Success",JOptionPane.YES_OPTION);
             this.vista.dispose();
-            System.out.println(usuario.getNombre());
-            System.out.println(usuario.getApellido());
             VentanaDashboardUsuario ventanaDashboardUsuario = new VentanaDashboardUsuario("Dashboard",usuario);
+            ControladorVentanaDashboardUsuario controladorVentanaDashboardUsuario =
+                    new ControladorVentanaDashboardUsuario(sistema,ventanaDashboardUsuario);
         }
 
     }

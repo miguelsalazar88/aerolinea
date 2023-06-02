@@ -9,6 +9,8 @@ import java.awt.*;
 public class VentanaDashboardUsuario extends Ventana{
 
     private Usuario usuario;
+
+    private Controlador controlador;
     private JPanel panel;
     private JLabel nameLabel;
     private JPanel buttonsPanel;
@@ -47,7 +49,11 @@ public class VentanaDashboardUsuario extends Ventana{
 
     @Override
     public void setController(Controlador c) {
-
+        controlador = c;
+        comprarVueloButton.addActionListener(controlador);
+        verMapaButton.addActionListener(controlador);
+        enviarCargaButton.addActionListener(controlador);
+        miItinerarioButton.addActionListener(controlador);
     }
 
     public void setNameUsuario(){
@@ -55,5 +61,25 @@ public class VentanaDashboardUsuario extends Ventana{
         Font newFont = font.deriveFont(font.getSize() + 16f);
         nameLabel.setFont(newFont);
         nameLabel.setText(usuario.getNombre() + " " + usuario.getApellido());
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public JButton getComprarVueloButton() {
+        return comprarVueloButton;
+    }
+
+    public JButton getVerMapaButton() {
+        return verMapaButton;
+    }
+
+    public JButton getEnviarCargaButton() {
+        return enviarCargaButton;
+    }
+
+    public JButton getMiItinerarioButton() {
+        return miItinerarioButton;
     }
 }

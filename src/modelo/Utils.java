@@ -9,6 +9,12 @@ public class Utils {
 
     public static String[] cargos = {"Piloto", "Coplioto", "Tripulacion", "Administrador"};
 
+    public static String[] columnasInfoVuelos = {"ID", "Aerolinea", "Origen", "Destino"};
+
+    public static String idTiqueteGenerator(Vuelo vuelo){
+        return null;
+    }
+
     public static ArrayList<Ciudad> getCiudades(){
 
         ArrayList<Ciudad> ciudades = new ArrayList<Ciudad>();
