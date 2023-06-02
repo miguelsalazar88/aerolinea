@@ -17,9 +17,9 @@ public class GridActionListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        selectedButton = (JButton) e.getSource(); // Obtener el botón seleccionado
-        // Realizar otras acciones con el botón seleccionado si es necesario
-        System.out.println("Botón seleccionado: " + selectedButton.getText());
+        selectedButton = (JButton) e.getSource(); // Obtener el botï¿½n seleccionado
+        // Realizar otras acciones con el botï¿½n seleccionado si es necesario
+        System.out.println("Botï¿½n seleccionado: " + selectedButton.getText());
     }
 
 }

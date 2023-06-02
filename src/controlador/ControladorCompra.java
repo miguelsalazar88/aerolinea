@@ -49,7 +49,7 @@ public class ControladorCompra extends Controlador {
             	t.setOwner(testUser);
                 sistema.registrarTiquete(testUser, t);
                 System.out.println("Vuelo "+vueloSeleccionado.toString()+" seleccionado");
-                System.out.println("Silla añadida: "+t.getAsiento());
+                System.out.println("Silla aï¿½adida: "+t.getAsiento());
             }
 
         }

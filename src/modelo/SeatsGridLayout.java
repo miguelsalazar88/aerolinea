@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class SeatsGridLayout extends JPanel{
 	 private int gridSize;
 	 private JButton[][] gridButtons;
-	 private JButton selectedButton; // Variable para almacenar el botón seleccionado
+	 private JButton selectedButton; // Variable para almacenar el botï¿½n seleccionado
 	 
  
 	 
@@ -23,8 +23,8 @@ public class SeatsGridLayout extends JPanel{
 	     
 	        this.gridSize = gridSize;
 	        
-	        /* METODOS DE UN JFRAME. SI FUESE UNA VENTANA DE BOTONES, ESTE SERÍA EL COMPORTAMIENTO A AÑADIR
-	        setTitle("Cuadrícula");
+	        /* METODOS DE UN JFRAME. SI FUESE UNA VENTANA DE BOTONES, ESTE SERï¿½A EL COMPORTAMIENTO A Aï¿½ADIR
+	        setTitle("Cuadrï¿½cula");
 	        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);*/
 	        
 	        setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
@@ -45,9 +45,9 @@ public class SeatsGridLayout extends JPanel{
 
 	        //pack();
 	        
-	        setPreferredSize(new Dimension(300, 300)); // Establece el tamaño preferido del panel
+	        setPreferredSize(new Dimension(300, 300)); // Establece el tamaï¿½o preferido del panel
 
-	        // Opcional: Establece el tamaño mínimo y máximo si es necesario
+	        // Opcional: Establece el tamaï¿½o mï¿½nimo y mï¿½ximo si es necesario
 	        setMinimumSize(new Dimension(200, 200));
 	        setMaximumSize(new Dimension(500, 500));
 	        
@@ -65,9 +65,9 @@ public class SeatsGridLayout extends JPanel{
 
 	        @Override
 	        public void actionPerformed(ActionEvent e) {
-	            selectedButton = (JButton) e.getSource(); // Obtener el botón seleccionado
-	            // Realizar otras acciones con el botón seleccionado si es necesario
-	            System.out.println("Botón seleccionado: " + selectedButton.getText());
+	            selectedButton = (JButton) e.getSource(); // Obtener el botï¿½n seleccionado
+	            // Realizar otras acciones con el botï¿½n seleccionado si es necesario
+	            System.out.println("Botï¿½n seleccionado: " + selectedButton.getText());
 	        }
 	    }
 	 

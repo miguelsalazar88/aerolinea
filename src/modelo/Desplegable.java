@@ -10,7 +10,7 @@ public class Desplegable extends JFrame{
 	private JComboBox<Vuelo> comboBox;
 
     public Desplegable() {
-        // Configuración básica del JFrame
+        // Configuraciï¿½n bï¿½sica del JFrame
         setTitle("Lista desplegable");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
