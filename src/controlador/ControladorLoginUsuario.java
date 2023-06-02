@@ -1,7 +1,9 @@
 package controlador;
 
+import modelo.Pasajero;
 import modelo.SistemaSingleton;
 import modelo.Usuario;
+import vista.VentanaDashboardEmpleado;
 import vista.VentanaDashboardUsuario;
 import vista.VentanaLogin;
 
@@ -32,9 +34,16 @@ public class ControladorLoginUsuario extends Controlador{
         else{
             JOptionPane.showMessageDialog(this.vista,"Login Exitoso","Success",JOptionPane.YES_OPTION);
             this.vista.dispose();
-            VentanaDashboardUsuario ventanaDashboardUsuario = new VentanaDashboardUsuario("Dashboard",usuario);
-            ControladorDashboardUsuario controladorDashboardUsuario =
-                    new ControladorDashboardUsuario(sistema,ventanaDashboardUsuario);
+            if(usuario instanceof Pasajero) {
+                VentanaDashboardUsuario ventanaDashboardUsuario = new VentanaDashboardUsuario("Dashboard", usuario);
+                ControladorDashboardUsuario controladorDashboardUsuario =
+                        new ControladorDashboardUsuario(sistema, ventanaDashboardUsuario);
+            }
+            else{
+                VentanaDashboardEmpleado ventanaDashboardEmpleado = new VentanaDashboardEmpleado("Dashboard", usuario);
+                ControladorDashboardEmpleado controladorDashboardEmpleado =
+                        new ControladorDashboardEmpleado(sistema, ventanaDashboardEmpleado);
+            }
         }
 
     }
