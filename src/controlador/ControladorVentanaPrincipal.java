@@ -33,5 +33,6 @@ public class ControladorVentanaPrincipal extends Controlador{
             VentanaRegistro ventanaRegistro = new VentanaRegistro("Registro");
             ControladorRegistro controladorRegistro = new ControladorRegistro(SistemaSingleton.getInstance(), ventanaRegistro);
         }
+
     }
 }

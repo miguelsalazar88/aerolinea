@@ -4,8 +4,10 @@ import modelo.Pasajero;
 import modelo.SistemaSingleton;
 import vista.VentanaComprarVuelos;
 import vista.VentanaDashboardUsuario;
+import vista.VentanaItinerario;
 import vista.VentanaMapa;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 
 public class ControladorDashboardUsuario extends Controlador{
@@ -33,6 +35,16 @@ public class ControladorDashboardUsuario extends Controlador{
         if(e.getSource().equals(vista.getVerMapaButton())){
             VentanaMapa ventanaMapa = new VentanaMapa("Mapa");
             ventanaMapa.getPanel().start();
+        }
+
+        if (e.getSource().equals(vista.getMiItinerarioButton())){
+            if(vista.getUsuario().getVuelos().isEmpty()){
+                JOptionPane.showMessageDialog(this.vista,
+                        "Usted no tiene Vuelos", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            else{
+                VentanaItinerario ventanaItinerario = new VentanaItinerario("Mi Itinerario", vista.getUsuario());
+            }
         }
 
     }
