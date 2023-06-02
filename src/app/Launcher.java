@@ -1,9 +1,9 @@
 package app;
 
 import controlador.ControladorVentanaPrincipal;
-import modelo.MockCreator;
-import modelo.SistemaSingleton;
+import modelo.*;
 import vista.VentanaPrincipal;
+
 
 public class Launcher {
 
@@ -17,7 +17,6 @@ public class Launcher {
         ControladorVentanaPrincipal controladorVentanaPrincipal = new ControladorVentanaPrincipal(
                 ventanaPrincipal, sistema
         );
-
     }
 
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class VueloCarga extends Vuelo{
 
-    ArrayList<Carga> cargas;
+    ArrayList<Carga> cargas = new ArrayList<>();
     int pesoDisponible;
 
     public VueloCarga(String idVuelo, Aerolinea aerolinea, AvionCarga avion, Ciudad origen, Ciudad destino) {

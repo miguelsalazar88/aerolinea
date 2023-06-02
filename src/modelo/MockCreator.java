@@ -182,6 +182,9 @@ public class MockCreator {
             }
 
             ArrayList<VueloCarga> vuelosCarga = crearVuelosCarga(aerolinea,aerolinea.getAvionesCarga());
+            for (VueloCarga vuelo: vuelosCarga) {
+                aerolinea.agregarVuelo(vuelo);
+            }
             sistema.registrarAerolinea(aerolinea);
         }
     }

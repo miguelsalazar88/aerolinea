@@ -77,12 +77,12 @@ public class SistemaSingleton {
         return vuelos;
     }
 
-    public ArrayList<Vuelo> getVuelosCarga(){
-        ArrayList<Vuelo> vuelos = new ArrayList<Vuelo>();
+    public ArrayList<VueloCarga> getVuelosCarga(){
+        ArrayList<VueloCarga> vuelos = new ArrayList<VueloCarga>();
         for (Aerolinea a :aerolineas) {
-            for (Vuelo v: a.getVuelosPasajeros()) {
+            for (Vuelo v: a.getVuelosCarga()) {
                 if(v instanceof VueloCarga){
-                    vuelos.add(v);
+                    vuelos.add((VueloCarga) v);
                 }
 
             }
