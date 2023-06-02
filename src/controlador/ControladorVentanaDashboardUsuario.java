@@ -26,6 +26,8 @@ public class ControladorVentanaDashboardUsuario extends Controlador{
             Pasajero pasajero = (Pasajero) vista.getUsuario();
             VentanaComprarVuelos ventanaComprarVuelos = new VentanaComprarVuelos("Vuelos Disponibles",
                     pasajero);
+            ControladorComprarVuelos controladorComprarVuelos =
+                    new ControladorComprarVuelos(sistema,ventanaComprarVuelos);
         }
 
         if(e.getSource().equals(vista.getVerMapaButton())){

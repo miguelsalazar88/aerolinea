@@ -12,7 +12,7 @@ public class VentanaComprarVuelos extends Ventana{
 
     private Controlador controlador;
     private Pasajero pasajero;
-    private ArrayList<Vuelo> vuelos;
+    private ArrayList<VueloComercial> vuelos;
     private String[] columnas;
     private JTable tablaVuelos;
     private JScrollPane scrollPane;
@@ -64,7 +64,7 @@ public class VentanaComprarVuelos extends Ventana{
         return tablaVuelos;
     }
 
-    public ArrayList<Vuelo> getVuelos() {
+    public ArrayList<VueloComercial> getVuelos() {
         return vuelos;
     }
 

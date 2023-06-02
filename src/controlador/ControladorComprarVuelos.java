@@ -2,8 +2,9 @@ package controlador;
 
 import modelo.Pasajero;
 import modelo.SistemaSingleton;
-import modelo.Vuelo;
+import modelo.VueloComercial;
 import vista.VentanaComprarVuelos;
+import vista.VentanaSeleccionarSillas;
 
 import java.awt.event.ActionEvent;
 
@@ -22,8 +23,11 @@ public class ControladorComprarVuelos extends Controlador{
 
         if (e.getSource().equals(vista.getComprarButton())){
             int filaSeleccionada = vista.getTablaVuelos().getSelectedRow();
-            Vuelo vuelo = vista.getVuelos().get(filaSeleccionada);
+            VueloComercial vuelo = vista.getVuelos().get(filaSeleccionada);
             Pasajero pasajero = vista.getPasajero();
+            VentanaSeleccionarSillas ventanaSeleccionarSillas = new VentanaSeleccionarSillas(vuelo);
+            ControladorSeleccionarSillas controladorSeleccionarSillas
+                    = new ControladorSeleccionarSillas(sistema,ventanaSeleccionarSillas, vuelo,pasajero);
         }
 
     }
