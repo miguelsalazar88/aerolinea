@@ -2,6 +2,7 @@ package controlador;
 
 import modelo.SistemaSingleton;
 import modelo.Usuario;
+import vista.VentanaDashboardUsuario;
 import vista.VentanaLogin;
 
 import javax.swing.*;
@@ -25,6 +26,7 @@ public class ControladorLoginUsuario extends Controlador{
 
         Usuario usuario = sistema.login(username, password);
 
+
         if (usuario == null){
             JOptionPane.showMessageDialog(this.vista,"Usuario y/o contraseña incorrectos", "Error",JOptionPane.ERROR_MESSAGE);
         }
@@ -32,6 +34,10 @@ public class ControladorLoginUsuario extends Controlador{
             // Se crea un nuevo dashboard para usuario.
             // VentanaDashboardUsuario(Usuario u)
             JOptionPane.showMessageDialog(this.vista,"Login Exitoso","Success",JOptionPane.YES_OPTION);
+            this.vista.dispose();
+            System.out.println(usuario.getNombre());
+            System.out.println(usuario.getApellido());
+            VentanaDashboardUsuario ventanaDashboardUsuario = new VentanaDashboardUsuario("Dashboard",usuario);
         }
 
     }
