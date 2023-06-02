@@ -1,133 +1,182 @@
 package vista;
 
-import controller.ControllerRegistro;
+import controlador.Controlador;
+import modelo.Constants;
 
-import javax.swing.ButtonGroup;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
-import javax.swing.JPasswordField;
-import java.awt.GridLayout;
-import java.awt.event.ItemEvent;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ItemListener;
 
-public class VentanaRegistro extends JFrame {
+public class VentanaRegistro extends Ventana {
+
+    private JPanel panel;
+    private JLabel tipoLabel;
+    private JLabel cargoLabel;
+
+    private JLabel usernameLabel;
+    private JLabel passwordLabel;
+    private JLabel nombreLabel;
+    private JLabel apellidoLabel;
+
+    private JLabel salarioLabel;
+    private ButtonGroup radioButtonGroup;
     private JRadioButton empleadoRadioButton;
-    private JRadioButton passengerRadioButton;
+    private JRadioButton pasajeroRadioButton;
+    private JComboBox<String> tipoEmpleadoCBox;
     private JTextField usernameField;
     private JPasswordField passwordField;
     private JTextField nombreField;
     private JTextField apellidoField;
-    private JComboBox<String> tipoEmpleadoComboBox;
-    private JButton registrarButton;
-    private ControllerRegistro controller;
+    private JTextField salarioField;
+    private JButton registrarBtn;
 
-    public VentanaRegistro() {
-        setTitle("Registration");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(800, 600);
+    public VentanaRegistro(String title) throws HeadlessException {
+        super(title);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setSize(400,400);
+    }
 
-        JPanel panel = new JPanel(new GridLayout(12, 4));
+    @Override
+    public void initComponents() {
+        panel = new JPanel(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        JLabel typeLabel = new JLabel("Tipo Usuario:");
+        tipoLabel = new JLabel("Tipo usuario:");
         empleadoRadioButton = new JRadioButton("Empleado");
-        passengerRadioButton = new JRadioButton("Pasajero");
-
-        ButtonGroup typeButtonGroup = new ButtonGroup();
-        typeButtonGroup.add(empleadoRadioButton);
-        typeButtonGroup.add(passengerRadioButton);
-
-        // Configurar el ComboBox
-        JLabel categoryLabel = new JLabel("Category:");
-        String[] categories = {"Piloto", "Co-piloto", "Tripulación"};
-        tipoEmpleadoComboBox = new JComboBox<>(categories);
-        tipoEmpleadoComboBox.setEnabled(false); // Desactivar por defecto
-
-        JLabel usernameLabel = new JLabel("Username:");
+        pasajeroRadioButton = new JRadioButton("Pasajero");
+        radioButtonGroup = new ButtonGroup();
+        radioButtonGroup.add(empleadoRadioButton);
+        radioButtonGroup.add(pasajeroRadioButton);
+        cargoLabel = new JLabel("Cargo:");
+        tipoEmpleadoCBox = new JComboBox<>(Constants.cargos);
+        tipoEmpleadoCBox.setEnabled(false);
+        usernameLabel = new JLabel("Username:");
         usernameField = new JTextField(20);
-
-        JLabel passwordLabel = new JLabel("Password:");
+        passwordLabel = new JLabel("Password:");
         passwordField = new JPasswordField(20);
-
-        JLabel nameLabel = new JLabel("Nombre:");
+        nombreLabel = new JLabel("Nombre:");
         nombreField = new JTextField(20);
-
-        JLabel lastNameLabel = new JLabel("Apellido:");
+        apellidoLabel = new JLabel("Apellido:");
         apellidoField = new JTextField(20);
+        salarioLabel = new JLabel("Salario:");
+        salarioField = new JTextField(20);
+        salarioField.setEnabled(false);
+        salarioLabel.setVisible(false);
+        salarioField.setVisible(false);
+        registrarBtn = new JButton("Registrarse");
 
-        // Botón "Registrar"
-        registrarButton = new JButton("Registrar");
+        // Configuración de las restricciones del GridBagConstraints
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.anchor = GridBagConstraints.WEST;
+        panel.add(tipoLabel, gbc);
 
-        // Agregar los componentes al panel
-        panel.add(typeLabel);
-        panel.add(empleadoRadioButton);
-        panel.add(new JLabel()); // Espacio en blanco para alinear los radiobuttons
-        panel.add(passengerRadioButton);
-        panel.add(categoryLabel);
-        panel.add(tipoEmpleadoComboBox);
-        panel.add(usernameLabel);
-        panel.add(usernameField);
-        panel.add(passwordLabel);
-        panel.add(passwordField);
-        panel.add(nameLabel);
-        panel.add(nombreField);
-        panel.add(lastNameLabel);
-        panel.add(apellidoField);
-        panel.add(registrarButton);
+        gbc.gridy = 1;
+        panel.add(empleadoRadioButton, gbc);
 
-        // Manejar eventos de selección de los radiobuttons
-        ItemListener radioButtonListener = new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent e) {
-                if (empleadoRadioButton.isSelected()) {
-                    tipoEmpleadoComboBox.setEnabled(true);
-                } else {
-                    tipoEmpleadoComboBox.setEnabled(false);
-                }
+        gbc.gridy = 2;
+        panel.add(pasajeroRadioButton, gbc);
+
+        gbc.gridy = 3;
+        panel.add(cargoLabel, gbc);
+
+        gbc.gridy = 4;
+        panel.add(tipoEmpleadoCBox, gbc);
+
+        gbc.gridy = 5;
+        panel.add(usernameLabel, gbc);
+
+        gbc.gridy = 6;
+        panel.add(usernameField, gbc);
+
+        gbc.gridy = 7;
+        panel.add(passwordLabel, gbc);
+
+        gbc.gridy = 8;
+        panel.add(passwordField, gbc);
+
+        gbc.gridy = 9;
+        panel.add(nombreLabel, gbc);
+
+        gbc.gridy = 10;
+        panel.add(nombreField, gbc);
+
+        gbc.gridy = 11;
+        panel.add(apellidoLabel, gbc);
+
+        gbc.gridy = 12;
+        panel.add(apellidoField, gbc);
+
+        gbc.gridy = 13;
+        panel.add(salarioLabel,gbc);
+
+        gbc.gridy = 14;
+        panel.add(salarioField,gbc);
+
+        gbc.gridy = 15;
+        gbc.gridwidth = 2;
+        panel.add(registrarBtn, gbc);
+
+        ItemListener rBtnListener = e -> {
+            if (empleadoRadioButton.isSelected()) {
+                tipoEmpleadoCBox.setEnabled(true);
+                salarioField.setEnabled(true);
+                salarioField.setVisible(true);
+                salarioLabel.setVisible(true);
+
+            } else {
+                tipoEmpleadoCBox.setEnabled(false);
+                salarioField.setEnabled(false);
+                salarioField.setVisible(false);
+                salarioLabel.setVisible(false);
             }
         };
 
-        empleadoRadioButton.addItemListener(radioButtonListener);
-        passengerRadioButton.addItemListener(radioButtonListener);
-
+        empleadoRadioButton.addItemListener(rBtnListener);
+        pasajeroRadioButton.addItemListener(rBtnListener);
         add(panel);
-
-        setVisible(true);
     }
 
-    public void setController(ControllerRegistro c){
-        this.controller = c;
-        this.registrarButton.addActionListener(this.controller);
-
+    @Override
+    public void setController(Controlador c) {
+        controller = c;
+        this.registrarBtn.addActionListener(controller);
     }
 
-    public String getUsernameField(){
-        return this.usernameField.getText();
+    public JRadioButton getEmpleadoRadioButton() {
+        return empleadoRadioButton;
     }
 
-    public String getPasswordField(){
-        return this.passwordField.getText();
+    public JRadioButton getPasajeroRadioButton() {
+        return pasajeroRadioButton;
     }
 
-    public String getNombreField(){
-        return this.nombreField.getText();
+    public JComboBox<String> getTipoEmpleadoCBox() {
+        return tipoEmpleadoCBox;
     }
 
-    public String getApellidoField(){
-        return this.apellidoField.getText();
+    public JTextField getUsernameField() {
+        return usernameField;
     }
 
-    public String getTipoEmpleadoCbo(){
-        return this.tipoEmpleadoComboBox.getSelectedItem().toString();
+    public JPasswordField getPasswordField() {
+        return passwordField;
     }
 
-    public JButton getRegistrarButton() {
-        return registrarButton;
+    public JTextField getNombreField() {
+        return nombreField;
+    }
+
+    public JTextField getApellidoField() {
+        return apellidoField;
+    }
+
+    public JTextField getSalarioField() {
+        return salarioField;
+    }
+
+    public JButton getRegistrarBtn() {
+        return registrarBtn;
     }
 }
-
-

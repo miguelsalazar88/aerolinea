@@ -1,6 +1,6 @@
 package modelo;
 
-public class AvionCarga extends Avion {
+public class AvionCarga extends Avion{
     private int capacidad;
 
     public AvionCarga(int id, String marca, String tipo, int capacidad) {
@@ -8,8 +8,8 @@ public class AvionCarga extends Avion {
         this.capacidad = capacidad;
     }
 
+    //Getters y Setters
     public int getCapacidad() {
         return capacidad;
     }
-
 }

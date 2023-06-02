@@ -4,11 +4,24 @@ import java.util.ArrayList;
 
 public class VueloCarga extends Vuelo{
 
-    private int carga;
+    ArrayList<Carga> cargas;
+    int pesoDisponible;
 
-    public VueloCarga(int idVuelo, Aerolinea aerolinea, Avion avion,
-                      Ciudad origen, Ciudad destino) {
+    public VueloCarga(String idVuelo, Aerolinea aerolinea, AvionCarga avion, Ciudad origen, Ciudad destino) {
         super(idVuelo, aerolinea, avion, origen, destino);
-        this.carga = 0;
+        this.pesoDisponible = avion.getCapacidad();
+    }
+
+    public void agregarCarga(Carga c){
+        this.cargas.add(c);
+        this.pesoDisponible -= c.getPeso();
+    }
+
+    public ArrayList<Carga> getCargas() {
+        return cargas;
+    }
+
+    public int getPesoDisponible() {
+        return pesoDisponible;
     }
 }

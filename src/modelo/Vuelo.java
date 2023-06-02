@@ -1,11 +1,10 @@
 package modelo;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
-public abstract class Vuelo implements Serializable {
+public abstract class Vuelo {
 
-    protected int idVuelo;
+    protected String idVuelo;
     protected Aerolinea aerolinea;
     protected Avion avion;
     protected Ciudad origen;
@@ -13,13 +12,14 @@ public abstract class Vuelo implements Serializable {
     protected Coordenadas ubicacion;
     protected ArrayList<Empleado> tripulacion;
 
-    public Vuelo(int idVuelo, Aerolinea aerolinea, Avion avion, Ciudad origen, Ciudad destino) {
+    public Vuelo(String idVuelo, Aerolinea aerolinea, Avion avion, Ciudad origen, Ciudad destino) {
         this.idVuelo = idVuelo;
         this.aerolinea = aerolinea;
         this.avion = avion;
         this.origen = origen;
         this.destino = destino;
         this.ubicacion = origen.getCoordenadas();
+        this.tripulacion = new ArrayList<Empleado>();
     }
 
     public void actualizarUbicacion() {
@@ -35,7 +35,18 @@ public abstract class Vuelo implements Serializable {
         }
     }
 
+    //Getters y Setters
+
     public Coordenadas getUbicacion() {
         return ubicacion;
+    }
+
+    @Override
+    public String toString() {
+        return aerolinea.getNombre() + ": " + origen.getNombre() + " - " + destino.getNombre();
+    }
+    
+    public String getInfo() {
+    	return aerolinea.getNombre() + ": " + origen.getNombre() + " - " + destino.getNombre();
     }
 }

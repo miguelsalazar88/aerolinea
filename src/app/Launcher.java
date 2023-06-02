@@ -1,29 +1,21 @@
 package app;
 
-import controller.ControllerLogin;
-import controller.ControllerMapa;
-import modelo.*;
-import vista.VentanaLogin;
-import vista.VentanaMapa;
-import vista.VentanaRegistro;
-
-import java.util.ArrayList;
+import controlador.ControladorVentanaPrincipal;
+import modelo.SistemaSingleton;
+import vista.VentanaPrincipal;
 
 public class Launcher {
+
     public static void main(String[] args) {
 
-        SistemaSingleton sistema = SistemaSerializer.recuperarSistema();
+        // Se llama a la instancia de sistema.
+        SistemaSingleton sistema = SistemaSingleton.getInstance();
 
-        if (sistema == null){
-            sistema = SistemaSingleton.getInstance();
-        }
-//
-//        VentanaLogin ventanaLogin = new VentanaLogin();
-//        ControllerLogin contollerLogin = new ControllerLogin(ventanaLogin,sistema);
-
-        VentanaMapa ventanaMapa = new VentanaMapa();
-        ControllerMapa controllerMapa = new ControllerMapa(ventanaMapa,sistema);
-        ventanaMapa.start();
+        //Se crea una instancia de VentanaPrincipal con su Controlador
+        VentanaPrincipal ventanaPrincipal = new VentanaPrincipal("Principal");
+        ControladorVentanaPrincipal controladorVentanaPrincipal = new ControladorVentanaPrincipal(
+                ventanaPrincipal, sistema
+        );
 
     }
 

@@ -1,41 +1,30 @@
 package vista;
 
-import controller.ControllerMapa;
-import modelo.Ciudad;
+import controlador.Controlador;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
+import java.awt.*;
 
-public class VentanaMapa extends JFrame {
+public class VentanaMapa extends Ventana{
 
-    private JButton startButton;
-    private JButton stopButton;
-    private PanelMapa panel = new PanelMapa();
+    private PanelMapa panel;
 
-    private ControllerMapa controller;
+    public VentanaMapa(String title) throws HeadlessException {
+        super(title);
+    }
 
-    public VentanaMapa(){
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        getContentPane().add(this.panel);
+    @Override
+    public void initComponents() {
+        panel = new PanelMapa();
+        getContentPane().add(panel);
         pack();
-        setVisible(true);
     }
 
-    public void setController(ControllerMapa controllerMapa) {
-        this.controller = controllerMapa;
+    @Override
+    public void setController(Controlador c) {
+
     }
 
-    public void start(){
-        Timer timer = new Timer(200, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                panel.repaint();
-            }
-        });
-        timer.start();
+    public PanelMapa getPanel() {
+        return panel;
     }
-
-
 }

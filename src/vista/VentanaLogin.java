@@ -1,64 +1,56 @@
 package vista;
 
-import controller.ControllerLogin;
+import controlador.Controlador;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class VentanaLogin extends JFrame {
+public class VentanaLogin extends Ventana{
 
-    private JPanel panel;
-    private JTextField usuarioTextField;
-    private JPasswordField contrasenaPasswordField;
-    private JButton iniciarSesionButton;
-    private JButton registrarseButton;
-    private ControllerLogin controller;
+    private JTextField usernameField;
+    private JPasswordField passwordField;
 
-    public VentanaLogin() {
-        setTitle("Inicio de Sesión");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(300,200);
-        initComponents();
-        setVisible(true);
+    public VentanaLogin(String title) throws HeadlessException {
+        super(title);
     }
 
+    @Override
     public void initComponents() {
+        JPanel panel = new JPanel(new GridLayout(3, 2));
 
-        usuarioTextField = new JTextField();
-        contrasenaPasswordField = new JPasswordField();
-        iniciarSesionButton = new JButton("Iniciar Sesión");
-        registrarseButton = new JButton("Registrarse");
-        panel = new JPanel(new GridLayout(3,2));
-        panel.add(new JLabel("Usuario:"));
-        panel.add(usuarioTextField);
-        panel.add(new JLabel("Contraseña:"));
-        panel.add(contrasenaPasswordField);
-        panel.add(iniciarSesionButton);
-        panel.add(registrarseButton);
-        add(panel);
+        JLabel usernameLabel = new JLabel("Username:");
+        usernameField = new JTextField();
 
+        JLabel passwordLabel = new JLabel("Password:");
+        passwordField = new JPasswordField();
+
+        JButton loginButton = new JButton("Login");
+        loginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String username = usernameField.getText();
+                String password = new String(passwordField.getPassword());
+                // Aquí puedes agregar la lógica de verificación de inicio de sesión
+                System.out.println("Username: " + username);
+                System.out.println("Password: " + password);
+            }
+        });
+
+        panel.add(usernameLabel);
+        panel.add(usernameField);
+        panel.add(passwordLabel);
+        panel.add(passwordField);
+        panel.add(loginButton);
+
+        getContentPane().add(panel);
+        pack();
     }
 
-    public void setController(ControllerLogin c){
-        controller = c;
-        this.iniciarSesionButton.addActionListener(this.controller);
-        this.registrarseButton.addActionListener(this.controller);
+    @Override
+    public void setController(Controlador c) {
+        // Aquí puedes asignar un controlador si es necesario
     }
 
-    public String getUsernameField(){
-        return usuarioTextField.getText();
-    }
-
-    public String getPasswordField(){
-        return contrasenaPasswordField.getText();
-    }
-
-    public JButton getIniciarSesionButton() {
-        return iniciarSesionButton;
-    }
-
-    public JButton getRegistrarseButton() {
-        return registrarseButton;
-    }
 }

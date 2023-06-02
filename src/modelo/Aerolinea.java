@@ -1,10 +1,8 @@
 package modelo;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Aerolinea implements Serializable {
-
+public class Aerolinea {
     private String nombre;
     private Empleado owner;
     private ArrayList<Avion> aviones;
@@ -29,6 +27,11 @@ public class Aerolinea implements Serializable {
 
     public void agregarVuelo(Vuelo v){
         this.vuelos.add(v);
+    }
+
+    //Getters y Setters
+    public String getNombre() {
+        return nombre;
     }
 
     public ArrayList<Avion> getAviones() {

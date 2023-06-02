@@ -11,8 +11,9 @@ public class Pasajero extends Usuario{
         this.tiquetes = new ArrayList<Tiquete>();
     }
 
-    public void comprarTiquete(Tiquete t){
-        this.tiquetes.add(t);
-    }
+    //Getters y Setters
 
+    public ArrayList<Tiquete> getTiquetes() {
+        return tiquetes;
+    }
 }

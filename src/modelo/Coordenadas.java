@@ -1,8 +1,6 @@
 package modelo;
 
-import java.io.Serializable;
-
-public class Coordenadas implements Serializable {
+public class Coordenadas {
 
     private int x;
     private int y;
@@ -12,6 +10,7 @@ public class Coordenadas implements Serializable {
         this.y = y;
     }
 
+    //Getters y Setters
     public int getX() {
         return x;
     }
