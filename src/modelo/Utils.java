@@ -1,10 +1,15 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.Random;
 
-public class Constants {
+public class Utils {
+
+    public static Random rnd = new Random();
 
     public static String[] cargos = {"Piloto", "Coplioto", "Tripulacion", "Administrador"};
+
+    public static String[] columnasInfoVuelos = {"ID", "Aerolinea", "Origen", "Destino"};
 
     public static ArrayList<Ciudad> getCiudades(){
 

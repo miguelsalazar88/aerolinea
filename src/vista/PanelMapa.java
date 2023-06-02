@@ -1,9 +1,6 @@
 package vista;
 
-import modelo.Ciudad;
-import modelo.ImageSingleton;
-import modelo.SistemaSingleton;
-import modelo.Vuelo;
+import modelo.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,15 +24,19 @@ public class PanelMapa extends JPanel {
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
         g.drawImage(mapa,0,0,null);
-        ArrayList<Vuelo> vuelos = SistemaSingleton.getInstance().getVuelos();
+        ArrayList<VueloComercial> vuelos = SistemaSingleton.getInstance().getVuelosComerciales();
         for (Vuelo v: vuelos) {
             g.drawImage(avion, v.getUbicacion().getX(), v.getUbicacion().getY(),null);
             v.actualizarUbicacion();
+            g.setColor(Color.BLACK);
+            g.drawString(v.getIdVuelo(), v.getUbicacion().getX() + avion.getWidth(), v.getUbicacion().getY());
+
         }
         ArrayList<Ciudad> ciudades = SistemaSingleton.getInstance().getCiudades();
         for (Ciudad c: ciudades) {
             g.setColor(Color.RED);
             g.fillOval(c.getCoordenadas().getX(),c.getCoordenadas().getY(),10,10);
+
         }
 
     }

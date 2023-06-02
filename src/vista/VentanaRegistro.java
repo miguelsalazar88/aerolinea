@@ -1,7 +1,7 @@
 package vista;
 
 import controlador.Controlador;
-import modelo.Constants;
+import modelo.Utils;
 
 import javax.swing.*;
 import java.awt.*;
@@ -32,7 +32,6 @@ public class VentanaRegistro extends Ventana {
 
     public VentanaRegistro(String title) throws HeadlessException {
         super(title);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(400,400);
     }
 
@@ -49,7 +48,7 @@ public class VentanaRegistro extends Ventana {
         radioButtonGroup.add(empleadoRadioButton);
         radioButtonGroup.add(pasajeroRadioButton);
         cargoLabel = new JLabel("Cargo:");
-        tipoEmpleadoCBox = new JComboBox<>(Constants.cargos);
+        tipoEmpleadoCBox = new JComboBox<>(Utils.cargos);
         tipoEmpleadoCBox.setEnabled(false);
         usernameLabel = new JLabel("Username:");
         usernameField = new JTextField(20);

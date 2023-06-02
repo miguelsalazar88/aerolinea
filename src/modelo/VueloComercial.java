@@ -6,7 +6,7 @@ public class VueloComercial extends Vuelo{
 
     private Tiquete[] tiquetes;
 
-    public VueloComercial(String idVuelo, Aerolinea aerolinea, AvionPasajeros avion, Ciudad origen, Ciudad destino, Tiquete[] tiquetes) {
+    public VueloComercial(String idVuelo, Aerolinea aerolinea, AvionPasajeros avion, Ciudad origen, Ciudad destino) {
         super(idVuelo, aerolinea, avion, origen, destino);
         this.tiquetes = new Tiquete[avion.getCupos()];
     }
@@ -18,11 +18,10 @@ public class VueloComercial extends Vuelo{
     public ArrayList<Integer> getPuestosDisponibles(){
         ArrayList<Integer> puestosDisponibles = new ArrayList<Integer>();
         for (int i = 0; i < tiquetes.length; i++) {
-            if (tiquetes[i] != null){
-                puestosDisponibles.add(i);
+            if (tiquetes[i] == null){
+                puestosDisponibles.add(i+1);
             }
         }
         return puestosDisponibles;
     }
-
 }

@@ -12,7 +12,7 @@ public class SistemaSingleton {
     private SistemaSingleton() {
         this.usuarios = new ArrayList<Usuario>();
         this.aerolineas = new ArrayList<Aerolinea>();
-        this.ciudades = Constants.getCiudades();
+        this.ciudades = Utils.getCiudades();
     }
 
     public static SistemaSingleton getInstance() {
@@ -43,20 +43,47 @@ public class SistemaSingleton {
         return false;
     }
 
-    public Usuario verificarCredenciales(String username, String password) {
+    public Usuario login(String username, String password){
+        Usuario usuario = null;
         for (Usuario u : usuarios) {
-            if (u.getUsername().equals(username) && u.getPassword().equals(password)) {
-                return u;
+            if (u.getUsername().equals(username) && u.getPassword().equals(password)){
+                usuario = u;
             }
         }
-        return null; // Credenciales inválidas
+        return usuario;
     }
 
-    public ArrayList<Vuelo> getVuelos() {
+    public Aerolinea loginAerolinea(Usuario u){
+        Aerolinea aerolinea = null;
+        for (Aerolinea a: aerolineas) {
+            if(a.getOwner().equals(u)){
+                aerolinea = a;
+            }
+        }
+        return aerolinea;
+    }
+
+    public ArrayList<VueloComercial> getVuelosComerciales(){
+        ArrayList<VueloComercial> vuelos = new ArrayList<VueloComercial>();
+        for (Aerolinea a :aerolineas) {
+            for (Vuelo v: a.getVuelos()) {
+                if(v instanceof VueloComercial){
+                    vuelos.add((VueloComercial) v);
+                }
+
+            }
+        }
+        return vuelos;
+    }
+
+    public ArrayList<Vuelo> getVuelosCarga(){
         ArrayList<Vuelo> vuelos = new ArrayList<Vuelo>();
-        for (Aerolinea a : aerolineas) {
-            for (Vuelo v : a.getVuelos()) {
-                vuelos.add(v);
+        for (Aerolinea a :aerolineas) {
+            for (Vuelo v: a.getVuelos()) {
+                if(v instanceof VueloCarga){
+                    vuelos.add(v);
+                }
+
             }
         }
         return vuelos;
@@ -75,4 +102,16 @@ public class SistemaSingleton {
     public ArrayList<Ciudad> getCiudades() {
         return ciudades;
     }
+
+    public void addUsuarios(ArrayList<Usuario> arrUsuarios){
+        usuarios.addAll(arrUsuarios);
+    }
+
+    public void printUsuarios(){
+        for (Usuario u:
+             usuarios) {
+            System.out.println(u.getUsername() + " " + u.getPassword());
+        }
+    }
+
 }
