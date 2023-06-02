@@ -1,11 +1,9 @@
 package controlador;
 
-import modelo.Pasajero;
-import modelo.SistemaSingleton;
-import modelo.Tiquete;
-import modelo.VueloComercial;
+import modelo.*;
 import vista.VentanaSeleccionarSillas;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 
 public class ControladorSeleccionarSillas extends Controlador{
@@ -28,8 +26,12 @@ public class ControladorSeleccionarSillas extends Controlador{
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource().equals(vista.getSeleccionarButton())){
-            int silla = vista.getAsientoComboBox().getSelectedIndex() -1;
-
+            int silla = vista.getAsientoComboBox().getSelectedIndex();
+            Tiquete tiquete = FactoryTiquete.crearTiquete(silla, pasajero, vuelo);
+            vuelo.agregarTiquete(tiquete, silla);
+            pasajero.addTiquete(tiquete);
+            String mensaje = "Tiquete " + tiquete.getIdTiquete() + " comprado exitosamente";
+            JOptionPane.showMessageDialog(this.vista, mensaje, "Exito", JOptionPane.YES_OPTION);
             vista.dispose();
         }
 
