@@ -1,0 +1,47 @@
+# Carpeta de salida de compilación
+bin/
+obj/
+
+# Archivos de configuración generados por Visual Studio
+*.suo
+*.user
+*.sln.docstates
+
+# Archivos de respaldo y temporales
+*~
+*.bak
+*.tmp
+
+# Archivos generados por herramientas de compilación
+*.exe
+*.dll
+*.pdb
+
+# Carpetas de NuGet
+packages/
+
+# Archivos de caché y archivos generados por el IDE
+.vs/
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+*.lib
+*.sbr
+*.sdf
+*.opensdf
+*.unsuccessfulbuild
+*.res
+
+# Otros archivos y directorios generados por herramientas o bibliotecas externas
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*.[Pp]ublish.xml
+*.pfx
