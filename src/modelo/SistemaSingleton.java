@@ -7,60 +7,62 @@ public class SistemaSingleton {
     private ArrayList<Usuario> usuarios;
     private ArrayList<Aerolinea> aerolineas;
     private ArrayList<Ciudad> ciudades;
-    private static SistemaSingleton instancia; //Instancia Singleton
+    private static SistemaSingleton instancia; // Instancia Singleton
 
-    private SistemaSingleton(){
+    private SistemaSingleton() {
         this.usuarios = new ArrayList<Usuario>();
         this.aerolineas = new ArrayList<Aerolinea>();
         this.ciudades = Constants.getCiudades();
     }
 
-    public static SistemaSingleton getInstance(){
-        if (instancia==null){
+    public static SistemaSingleton getInstance() {
+        if (instancia == null) {
             instancia = new SistemaSingleton();
         }
         return instancia;
     }
 
-    public void registarUsuario(Usuario u){
+    public void registarUsuario(Usuario u) {
         this.usuarios.add(u);
     }
 
-    public void registrarAerolinea(Aerolinea a){
+    public void registrarAerolinea(Aerolinea a) {
         this.aerolineas.add(a);
     }
 
-    public void addCiudad(Ciudad c){
+    public void addCiudad(Ciudad c) {
         this.ciudades.add(c);
     }
 
-    public boolean usuarioExiste(String username){
-        boolean usuarioExiste = false;
+    public boolean usuarioExiste(String username) {
         for (Usuario u : usuarios) {
-            if (u.username == username){
-                usuarioExiste = true;
+            if (u.getUsername().equals(username)) {
+                return true;
             }
         }
-        return usuarioExiste;
+        return false;
     }
 
-    public Usuario login(){
-        return null;
+    public Usuario verificarCredenciales(String username, String password) {
+        for (Usuario u : usuarios) {
+            if (u.getUsername().equals(username) && u.getPassword().equals(password)) {
+                return u;
+            }
+        }
+        return null; // Credenciales inválidas
     }
 
-    public ArrayList<Vuelo> getVuelos(){
+    public ArrayList<Vuelo> getVuelos() {
         ArrayList<Vuelo> vuelos = new ArrayList<Vuelo>();
-        for (Aerolinea a :aerolineas) {
-            for (Vuelo v: a.getVuelos()) {
+        for (Aerolinea a : aerolineas) {
+            for (Vuelo v : a.getVuelos()) {
                 vuelos.add(v);
             }
         }
         return vuelos;
     }
 
-
     // Getters y Setters
-
 
     public ArrayList<Usuario> getUsuarios() {
         return usuarios;

@@ -1,24 +1,30 @@
 package vista;
 
+import controlador.ControladorLogin;
 import controlador.Controlador;
+import modelo.SistemaSingleton;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class VentanaLogin extends Ventana{
+public class VentanaLogin extends Ventana {
 
     private JTextField usernameField;
     private JPasswordField passwordField;
+    private JButton loginButton;
 
     public VentanaLogin(String title) throws HeadlessException {
         super(title);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setSize(300,200);
     }
 
     @Override
     public void initComponents() {
         JPanel panel = new JPanel(new GridLayout(3, 2));
+        panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         JLabel usernameLabel = new JLabel("Username:");
         usernameField = new JTextField();
@@ -26,17 +32,7 @@ public class VentanaLogin extends Ventana{
         JLabel passwordLabel = new JLabel("Password:");
         passwordField = new JPasswordField();
 
-        JButton loginButton = new JButton("Login");
-        loginButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String username = usernameField.getText();
-                String password = new String(passwordField.getPassword());
-                // Aquí puedes agregar la lógica de verificación de inicio de sesión
-                System.out.println("Username: " + username);
-                System.out.println("Password: " + password);
-            }
-        });
+        loginButton = new JButton("Login");
 
         panel.add(usernameLabel);
         panel.add(usernameField);
@@ -50,7 +46,20 @@ public class VentanaLogin extends Ventana{
 
     @Override
     public void setController(Controlador c) {
-        // Aquí puedes asignar un controlador si es necesario
+        controller = c;
+        this.loginButton.addActionListener(c);
     }
 
+    public JButton getLoginButton() {
+        return loginButton;
+    }
+
+    public JTextField getUsernameField() {
+        return usernameField;
+    }
+
+    public JPasswordField getPasswordField() {
+        return passwordField;
+    }
 }
+
