@@ -3,6 +3,7 @@ package controlador;
 import modelo.Aerolinea;
 import modelo.SistemaSingleton;
 import modelo.Usuario;
+import vista.VentanaDashboardAerolinea;
 import vista.VentanaDashboardEmpleado;
 import vista.VentanaDashboardUsuario;
 import vista.VentanaLogin;
@@ -37,7 +38,8 @@ public class ControladorLoginAerolinea extends Controlador{
             JOptionPane.showMessageDialog(this.vista,"Usuario y/o contraseña incorrectos", "Error",JOptionPane.ERROR_MESSAGE);
         }
         else{
-            System.out.println("Exito");
+            VentanaDashboardAerolinea ventanaDashboardAerolinea =
+                    new VentanaDashboardAerolinea("Dashboard", aerolinea);
 
         }
     }
