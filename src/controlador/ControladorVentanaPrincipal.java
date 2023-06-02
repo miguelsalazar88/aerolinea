@@ -26,7 +26,8 @@ public class ControladorVentanaPrincipal extends Controlador{
             ControladorLoginUsuario controladorLoginUsuario = new ControladorLoginUsuario(sistema,ventanaLogin);
         }
         if(e.getSource().equals(vista.getBtnAerolinea())){
-            System.out.println("Aerolinea");
+            VentanaLogin ventanaLogin = new VentanaLogin("Aerolinea");
+            ControladorLoginAerolinea controladorLoginAerolinea = new ControladorLoginAerolinea(sistema,ventanaLogin);
         }
         if(e.getSource().equals(vista.getBtnRegistrarse())){
             VentanaRegistro ventanaRegistro = new VentanaRegistro("Registro");

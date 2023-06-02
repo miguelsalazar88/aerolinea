@@ -1,8 +1,7 @@
 package controlador;
 
-import modelo.SistemaSingleton;
-import modelo.Usuario;
-import modelo.UsuarioFactory;
+import modelo.*;
+import vista.VentanaDashboardEmpleado;
 import vista.VentanaDashboardUsuario;
 import vista.VentanaRegistro;
 
@@ -57,7 +56,22 @@ public class ControladorRegistro extends Controlador{
                 sistema.registarUsuario(usuario);
                 JOptionPane.showMessageDialog(this.vista,"Usuario Registrado!","Success",JOptionPane.OK_OPTION);
                 this.vista.dispose();
-                VentanaDashboardUsuario ventanaDashboardUsuario = new VentanaDashboardUsuario("Dashboard", usuario);
+                if(usuario instanceof Pasajero){
+                    VentanaDashboardUsuario ventanaDashboardUsuario = new VentanaDashboardUsuario("Dashboard", usuario);
+                    ControladorDashboardUsuario controladorDashboardUsuario =
+                            new ControladorDashboardUsuario(sistema,ventanaDashboardUsuario);
+                }
+
+                else{
+
+                    VentanaDashboardEmpleado ventanaDashboardEmpleado =
+                            new VentanaDashboardEmpleado("Empleado",usuario);
+                    ControladorDashboardEmpleado controladorDashboardEmpleado =
+                            new ControladorDashboardEmpleado(sistema,ventanaDashboardEmpleado);
+
+                }
+
+
             }
 
         }

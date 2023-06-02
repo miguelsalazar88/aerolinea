@@ -8,11 +8,11 @@ import vista.VentanaMapa;
 
 import java.awt.event.ActionEvent;
 
-public class ControladorVentanaDashboardUsuario extends Controlador{
+public class ControladorDashboardUsuario extends Controlador{
 
     VentanaDashboardUsuario vista;
 
-    public ControladorVentanaDashboardUsuario(SistemaSingleton sistema, VentanaDashboardUsuario vista) {
+    public ControladorDashboardUsuario(SistemaSingleton sistema, VentanaDashboardUsuario vista) {
         super(sistema);
         this.vista = vista;
         this.vista.setController(this);

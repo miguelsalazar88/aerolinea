@@ -1,7 +1,6 @@
 package vista;
 
 import controlador.Controlador;
-import controlador.ControladorComprarVuelos;
 import modelo.*;
 
 import javax.swing.*;

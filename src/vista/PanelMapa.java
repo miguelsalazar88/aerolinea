@@ -28,11 +28,15 @@ public class PanelMapa extends JPanel {
         for (Vuelo v: vuelos) {
             g.drawImage(avion, v.getUbicacion().getX(), v.getUbicacion().getY(),null);
             v.actualizarUbicacion();
+            g.setColor(Color.BLACK);
+            g.drawString(v.getIdVuelo(), v.getUbicacion().getX() + avion.getWidth(), v.getUbicacion().getY());
+
         }
         ArrayList<Ciudad> ciudades = SistemaSingleton.getInstance().getCiudades();
         for (Ciudad c: ciudades) {
             g.setColor(Color.RED);
             g.fillOval(c.getCoordenadas().getX(),c.getCoordenadas().getY(),10,10);
+
         }
 
     }

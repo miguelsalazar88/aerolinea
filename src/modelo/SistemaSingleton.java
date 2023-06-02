@@ -54,6 +54,16 @@ public class SistemaSingleton {
         return usuario;
     }
 
+    public Aerolinea loginAerolinea(Usuario u){
+        Aerolinea aerolinea = null;
+        for (Aerolinea a: aerolineas) {
+            if(a.getOwner().equals(u)){
+                aerolinea = a;
+            }
+        }
+        return aerolinea;
+    }
+
     public ArrayList<VueloComercial> getVuelosComerciales(){
         ArrayList<VueloComercial> vuelos = new ArrayList<VueloComercial>();
         for (Aerolinea a :aerolineas) {
@@ -99,4 +109,12 @@ public class SistemaSingleton {
     public void addUsuarios(ArrayList<Usuario> arrUsuarios){
         usuarios.addAll(arrUsuarios);
     }
+
+    public void printUsuarios(){
+        for (Usuario u:
+             usuarios) {
+            System.out.println(u.getUsername() + " " + u.getPassword());
+        }
+    }
+
 }

@@ -34,19 +34,19 @@ public class MockCreator {
 
         ArrayList<Empleado> administradoresAerolineas = new ArrayList<Empleado>();
 
-        Empleado adminAvianca = new Empleado("avianca","passowrd",
+        Empleado adminAvianca = new Empleado("avianca","password",
                 "admin","Avianca","Administrador",1000000);
 
-        Empleado adminLatam = new Empleado("latam","passowrd",
+        Empleado adminLatam = new Empleado("latam","password",
                 "admin","Latam","Administrador",1000000);
 
-        Empleado adminViva = new Empleado("viva","passowrd",
+        Empleado adminViva = new Empleado("viva","password",
                 "admin","Viva","Administrador",1000000);
 
-        Empleado adminWingo = new Empleado("wingo","passowrd",
+        Empleado adminWingo = new Empleado("wingo","password",
                 "admin","Wingo","Administrador",1000000);
 
-        Empleado adminUltra = new Empleado("ultra","passowrd",
+        Empleado adminUltra = new Empleado("ultra","password",
                 "admin","Ultra","Administrador",1000000);
 
         administradoresAerolineas.add(adminAvianca);
@@ -110,17 +110,18 @@ public class MockCreator {
     public static void crearMock(){
         SistemaSingleton sistema = SistemaSingleton.getInstance();
 
+        //Crear administradores
+        ArrayList<Empleado> administradores = crearAdministradores();
+        for (Empleado e: administradores) {
+            sistema.registarUsuario(e);
+        }
+
         //Crear Pasajeros
         ArrayList<Pasajero> pasajeros = crearPasajeros();
         for (Pasajero p: pasajeros) {
             sistema.registarUsuario(p);
         }
 
-        //Crear administradores
-        ArrayList<Empleado> administradores = crearAdministradores();
-        for (Empleado e: administradores) {
-            sistema.registarUsuario(e);
-        }
         // Crear Aerolineas, aviones y vuelos
         ArrayList<Aerolinea> aerolineas = crearAerolineas(administradores);
         for (Aerolinea aerolinea: aerolineas) {
