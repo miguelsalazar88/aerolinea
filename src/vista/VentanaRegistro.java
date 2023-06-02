@@ -66,7 +66,7 @@ public class VentanaRegistro extends Ventana {
         salarioField.setVisible(false);
         registrarBtn = new JButton("Registrarse");
 
-        // Configuración de las restricciones del GridBagConstraints
+        
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.WEST;
