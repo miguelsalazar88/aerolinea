@@ -30,6 +30,7 @@ public class ControladorSeleccionarSillas extends Controlador{
             Tiquete tiquete = FactoryTiquete.crearTiquete(silla, pasajero, vuelo);
             vuelo.agregarTiquete(tiquete, silla);
             pasajero.addTiquete(tiquete);
+            pasajero.addVuelo(tiquete.getVuelo());
             String mensaje = "Tiquete " + tiquete.getIdTiquete() + " comprado exitosamente";
             JOptionPane.showMessageDialog(this.vista, mensaje, "Exito", JOptionPane.YES_OPTION);
             vista.dispose();

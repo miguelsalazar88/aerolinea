@@ -2,10 +2,7 @@ package controlador;
 
 import modelo.Pasajero;
 import modelo.SistemaSingleton;
-import vista.VentanaComprarVuelos;
-import vista.VentanaDashboardEmpleado;
-import vista.VentanaDashboardUsuario;
-import vista.VentanaMapa;
+import vista.*;
 
 import java.awt.event.ActionEvent;
 
@@ -28,7 +25,7 @@ public class ControladorDashboardEmpleado extends Controlador{
         }
 
         if(e.getSource().equals(vista.getMiItinerarioButton())){
-
+            VentanaItinerario ventanaItinerario = new VentanaItinerario("Mi Itinerario", vista.getUsuario());
         }
 
     }

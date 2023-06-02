@@ -22,6 +22,10 @@ public abstract class Usuario {
         this.tiquetes = new ArrayList<Tiquete>();
     }
 
+    public void addVuelo(Vuelo v){
+        vuelos.add(v);
+    }
+
     // Getters y Setters
 
 
