@@ -29,10 +29,11 @@ public class ControladorDashboardAerolinea extends Controlador{
 
         if(e.getSource().equals(vista.getCrearEmpleadoButton())){
 
-            System.out.println("Exito");
-
             VentanaRegistroEmpleado ventanaRegistroEmpleado =
                     new VentanaRegistroEmpleado("Registro de Empleado");
+
+            ControladorRegistroEmpleado controladorRegistroEmpleado =
+                    new ControladorRegistroEmpleado(sistema,ventanaRegistroEmpleado);
 
         }
 

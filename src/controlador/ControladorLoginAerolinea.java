@@ -42,6 +42,7 @@ public class ControladorLoginAerolinea extends Controlador{
                     new VentanaDashboardAerolinea("Dashboard", aerolinea);
             ControladorDashboardAerolinea controladorDashboardAerolinea =
                     new ControladorDashboardAerolinea(sistema, ventanaDashboardAerolinea);
+            vista.dispose();
 
         }
     }
