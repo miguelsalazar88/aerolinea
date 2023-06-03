@@ -1,11 +1,9 @@
 package vista;
 
 import controlador.Controlador;
-import controlador.ControladorDashboardAerolinea;
 import modelo.Aerolinea;
 import modelo.Empleado;
 import modelo.Vuelo;
-import modelo.VueloComercial;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,93 +15,69 @@ public class VentanaAsignarEmpleado extends JFrame {
     private Controlador controlador;
     private JPanel panel;
     public Aerolinea aerolinea;
-    private JComboBox<Empleado> empleadosComboBox;
-    private JComboBox<Vuelo> vuelosComboBox;
-    private JButton asignarButton;
+    private JComboBox<String> empleadosComboBox;
+    private JComboBox<String> vuelosComboBox;
+    private JButton asignarEmpleadoButton;
 
     public VentanaAsignarEmpleado(String title, Aerolinea a) throws HeadlessException {
         this.aerolinea=a;
-        setTitle("Asignar Empleado");
+        setTitle(title);
         initcomponents();
         pack();
         setVisible(true);
     }
-
     public void initcomponents() {
         panel = new JPanel();
         panel.setLayout(new FlowLayout());
         ArrayList<Empleado> empleados = aerolinea.getEmpleados();
-        Empleado[] empleadosArray = empleados.toArray(new Empleado[empleados.size()]);
+        String[] empleadosArray = new String[empleados.size()];
+        for (int i=0;i<empleadosArray.length;i++)
+        {
+            empleadosArray[i]=empleados.get(i).toString();
+        }
         empleadosComboBox = new JComboBox<>(empleadosArray);
         panel.add(empleadosComboBox);
         ArrayList<Vuelo> vuelos = aerolinea.getVuelos();
-        Vuelo[] vuelosArray = vuelos.toArray(new Vuelo[vuelos.size()]);
+        String[] vuelosArray = new String[vuelos.size()];
+        for (int i=0;i<vuelosArray.length;i++)
+        {
+            vuelosArray[i]=vuelos.get(i).toString();
+        }
         vuelosComboBox = new JComboBox<>(vuelosArray);
         panel.add(vuelosComboBox);
-        asignarButton = new JButton("Asignar empleado");
-        panel.add(asignarButton);
+        asignarEmpleadoButton = new JButton("Asignar empleado");
+        panel.add(asignarEmpleadoButton);
         getContentPane().add(panel);
     }
-
     public void setController(Controlador c){
         controlador = c;
-        asignarButton.addActionListener(controlador);
+        asignarEmpleadoButton.addActionListener(controlador);
     }
-
-    public JButton getAsignarButton() {
-        return asignarButton;
+    public JButton getAsignarEmpleadoButton() {
+        return asignarEmpleadoButton;
     }
-
-    public JComboBox<Vuelo> getVueslosComboBox() {
-        return vuelosComboBox;
-    }
-    public JComboBox<Empleado> getEmpleadsComboBox() {
-        return empleadosComboBox;
-    }
-
     public Controlador getControlador() {
         return controlador;
     }
-
     public void setControlador(Controlador controlador) {
         this.controlador = controlador;
     }
-
     public JPanel getPanel() {
         return panel;
     }
-
     public void setPanel(JPanel panel) {
         this.panel = panel;
     }
-
     public Aerolinea getAerolinea() {
         return aerolinea;
     }
-
     public void setAerolinea(Aerolinea aerolinea) {
         this.aerolinea = aerolinea;
     }
-
-    public JComboBox<Empleado> getEmpleadosComboBox() {
+    public JComboBox<String> getEmpleadosComboBox() {
         return empleadosComboBox;
     }
-
-    public void setEmpleadosComboBox(JComboBox<Empleado> empleadosComboBox) {
-        this.empleadosComboBox = empleadosComboBox;
-    }
-
-    public JComboBox<Vuelo> getVuelosComboBox() {
+    public JComboBox<String> getVuelosComboBox() {
         return vuelosComboBox;
     }
-
-    public void setVuelosComboBox(JComboBox<Vuelo> vuelosComboBox) {
-        this.vuelosComboBox = vuelosComboBox;
-    }
-
-    public void setAsignarButton(JButton asignarButton) {
-        this.asignarButton = asignarButton;
-    }
-
-
 }

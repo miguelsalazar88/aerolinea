@@ -9,8 +9,8 @@ import java.util.ArrayList;
 
 public class VentanaSeleccionarSillas extends JFrame {
 
-    private Controlador controlador;
-    private JPanel panel;
+    Controlador controlador;
+    JPanel panel;
     private VueloComercial vuelo;
     private JComboBox<Integer> asientoComboBox;
     private JButton seleccionarButton;
@@ -40,11 +40,6 @@ public class VentanaSeleccionarSillas extends JFrame {
         controlador = c;
         seleccionarButton.addActionListener(controlador);
     }
-
-    public JButton getSeleccionarButton() {
-        return seleccionarButton;
-    }
-
     public JComboBox<Integer> getAsientoComboBox() {
         return asientoComboBox;
     }

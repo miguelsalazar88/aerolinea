@@ -19,7 +19,7 @@ public abstract class Vuelo {
         this.origen = origen;
         this.destino = destino;
         this.ubicacion = origen.getCoordenadas();
-        this.tripulacion = new ArrayList<Empleado>();
+        this.tripulacion = new ArrayList<>();
     }
 
     public void actualizarUbicacion() {
@@ -61,10 +61,9 @@ public abstract class Vuelo {
     public String toString() {
         return "Vuelo{" +
                 "idVuelo='" + idVuelo + '\'' +
-                ", aerolinea=" + aerolinea +
-                ", avion=" + avion +
-                ", origen=" + origen +
-                ", destino=" + destino +
+                ", avion=" + avion.getId() +
+                ", origen=" + origen.getNombre() +
+                ", destino=" + destino.getNombre() +
                 '}';
     }
 

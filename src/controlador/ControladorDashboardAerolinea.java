@@ -30,6 +30,8 @@ public class ControladorDashboardAerolinea extends Controlador{
 
             VentanaAsignarEmpleado ventanaAsignarEmpleado =
                     new VentanaAsignarEmpleado("Asignación empleado",a);
+            ControladorAsignarEmpleado controladorAsignarEmpleado =
+                    new ControladorAsignarEmpleado(sistema,ventanaAsignarEmpleado);
 
         }
 
