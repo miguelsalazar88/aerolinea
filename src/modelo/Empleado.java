@@ -18,4 +18,13 @@ public class Empleado extends Usuario{
     public int getSalario() {
         return salario;
     }
+
+    @Override
+    public String toString() {
+        return "Empleado{" +
+                "cargo='" + cargo + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                '}';
+    }
 }

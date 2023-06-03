@@ -1,6 +1,7 @@
 package controlador;
 
 import modelo.*;
+import vista.VentanaAsignarEmpleado;
 import vista.VentanaSeleccionarSillas;
 
 import javax.swing.*;
@@ -25,7 +26,7 @@ public class ControladorSeleccionarSillas extends Controlador{
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if (e.getSource().equals(vista.getSeleccionarButton())){
+        if (e.getSource().equals(vista.getAsientoComboBox())){
             int silla = vista.getAsientoComboBox().getSelectedIndex();
             Tiquete tiquete = FactoryTiquete.crearTiquete(silla, pasajero, vuelo);
             vuelo.agregarTiquete(tiquete, silla);

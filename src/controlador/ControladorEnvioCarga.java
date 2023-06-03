@@ -9,7 +9,8 @@ import java.awt.event.ActionEvent;
 public class ControladorEnvioCarga extends Controlador{
 
     private VentanaEnvioCarga vista;
-
+    private Empleado empleado;
+    private Vuelo vuelo;
 
     public ControladorEnvioCarga(SistemaSingleton sistema, VentanaEnvioCarga vista) {
         super(sistema);

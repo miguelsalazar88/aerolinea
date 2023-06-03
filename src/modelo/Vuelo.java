@@ -41,11 +41,6 @@ public abstract class Vuelo {
         return ubicacion;
     }
 
-    @Override
-    public String toString() {
-        return aerolinea.getNombre() + ": " + origen.getNombre() + " - " + destino.getNombre();
-    }
-
     public String getIdVuelo() {
         return idVuelo;
     }
@@ -60,5 +55,52 @@ public abstract class Vuelo {
 
     public Ciudad getDestino() {
         return destino;
+    }
+
+    @Override
+    public String toString() {
+        return "Vuelo{" +
+                "idVuelo='" + idVuelo + '\'' +
+                ", aerolinea=" + aerolinea +
+                ", avion=" + avion +
+                ", origen=" + origen +
+                ", destino=" + destino +
+                '}';
+    }
+
+    public void setIdVuelo(String idVuelo) {
+        this.idVuelo = idVuelo;
+    }
+
+    public void setAerolinea(Aerolinea aerolinea) {
+        this.aerolinea = aerolinea;
+    }
+
+    public Avion getAvion() {
+        return avion;
+    }
+
+    public void setAvion(Avion avion) {
+        this.avion = avion;
+    }
+
+    public void setOrigen(Ciudad origen) {
+        this.origen = origen;
+    }
+
+    public void setDestino(Ciudad destino) {
+        this.destino = destino;
+    }
+
+    public void setUbicacion(Coordenadas ubicacion) {
+        this.ubicacion = ubicacion;
+    }
+
+    public ArrayList<Empleado> getTripulacion() {
+        return tripulacion;
+    }
+
+    public void setTripulacion(ArrayList<Empleado> tripulacion) {
+        this.tripulacion = tripulacion;
     }
 }

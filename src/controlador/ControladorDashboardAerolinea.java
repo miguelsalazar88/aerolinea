@@ -1,5 +1,6 @@
 package controlador;
 
+import modelo.Aerolinea;
 import modelo.SistemaSingleton;
 import vista.*;
 
@@ -7,7 +8,7 @@ import java.awt.event.ActionEvent;
 
 public class ControladorDashboardAerolinea extends Controlador{
 
-    VentanaDashboardAerolinea vista;
+    public VentanaDashboardAerolinea vista;
 
     public ControladorDashboardAerolinea(SistemaSingleton sistema, VentanaDashboardAerolinea vista) {
         super(sistema);
@@ -24,6 +25,11 @@ public class ControladorDashboardAerolinea extends Controlador{
         }
 
         if(e.getSource().equals(vista.getAsignarEmpleadoButton())){
+
+            Aerolinea a = this.vista.getAerolinea();
+
+            VentanaAsignarEmpleado ventanaAsignarEmpleado =
+                    new VentanaAsignarEmpleado("Asignación empleado",a);
 
         }
 

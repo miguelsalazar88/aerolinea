@@ -85,4 +85,8 @@ public class Aerolinea {
         }
         return avionesCarga;
     }
+
+    public ArrayList<Avion> getAviones() {
+        return aviones;
+    }
 }

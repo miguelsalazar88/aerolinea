@@ -9,8 +9,7 @@ import java.awt.*;
 
 public class VentanaDashboardAerolinea extends Ventana{
 
-    private Aerolinea aerolinea;
-
+    public Aerolinea aerolinea;
     private Controlador controlador;
     private JPanel panel;
     private JLabel nameLabel;

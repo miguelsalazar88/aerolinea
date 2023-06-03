@@ -2,7 +2,6 @@ package controlador;
 
 import modelo.*;
 import vista.VentanaCantidadCarga;
-import vista.VentanaSeleccionarSillas;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
