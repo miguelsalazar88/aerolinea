@@ -19,7 +19,7 @@ public abstract class Vuelo {
         this.origen = origen;
         this.destino = destino;
         this.ubicacion = origen.getCoordenadas();
-        this.tripulacion = new ArrayList<Empleado>();
+        this.tripulacion = new ArrayList<>();
     }
 
     public void actualizarUbicacion() {

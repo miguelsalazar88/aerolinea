@@ -1,11 +1,9 @@
 package vista;
 
 import controlador.Controlador;
-import controlador.ControladorDashboardAerolinea;
 import modelo.Aerolinea;
 import modelo.Empleado;
 import modelo.Vuelo;
-import modelo.VueloComercial;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,12 +21,11 @@ public class VentanaAsignarEmpleado extends JFrame {
 
     public VentanaAsignarEmpleado(String title, Aerolinea a) throws HeadlessException {
         this.aerolinea=a;
-        setTitle("Asignar Empleado");
+        setTitle(title);
         initcomponents();
         pack();
         setVisible(true);
     }
-
     public void initcomponents() {
         panel = new JPanel();
         panel.setLayout(new FlowLayout());
@@ -52,66 +49,35 @@ public class VentanaAsignarEmpleado extends JFrame {
         panel.add(asignarEmpleadoButton);
         getContentPane().add(panel);
     }
-
     public void setController(Controlador c){
         controlador = c;
         asignarEmpleadoButton.addActionListener(controlador);
     }
-
     public JButton getAsignarEmpleadoButton() {
         return asignarEmpleadoButton;
     }
-
-    public JComboBox<String> getVueslosComboBox() {
-        return vuelosComboBox;
-    }
-    public JComboBox<String> getEmpleadsComboBox() {
-        return empleadosComboBox;
-    }
-
     public Controlador getControlador() {
         return controlador;
     }
-
     public void setControlador(Controlador controlador) {
         this.controlador = controlador;
     }
-
     public JPanel getPanel() {
         return panel;
     }
-
     public void setPanel(JPanel panel) {
         this.panel = panel;
     }
-
     public Aerolinea getAerolinea() {
         return aerolinea;
     }
-
     public void setAerolinea(Aerolinea aerolinea) {
         this.aerolinea = aerolinea;
     }
-
     public JComboBox<String> getEmpleadosComboBox() {
         return empleadosComboBox;
     }
-
-    public void setEmpleadosComboBox(JComboBox<String> empleadosComboBox) {
-        this.empleadosComboBox = empleadosComboBox;
-    }
-
     public JComboBox<String> getVuelosComboBox() {
         return vuelosComboBox;
     }
-
-    public void setVuelosComboBox(JComboBox<String> vuelosComboBox) {
-        this.vuelosComboBox = vuelosComboBox;
-    }
-
-    public void setAsignarButton(JButton asignarButton) {
-        this.asignarEmpleadoButton = asignarButton;
-    }
-
-
 }

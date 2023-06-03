@@ -14,9 +14,8 @@ public class Launcher {
         MockCreator.crearMock();
         //Se crea una instancia de VentanaPrincipal con su Controlador
         VentanaPrincipal ventanaPrincipal = new VentanaPrincipal("Principal");
-        ControladorVentanaPrincipal controladorVentanaPrincipal = new ControladorVentanaPrincipal(
-                ventanaPrincipal, sistema
-        );
+        ControladorVentanaPrincipal controladorVentanaPrincipal =
+                new ControladorVentanaPrincipal(ventanaPrincipal, sistema);
     }
 
 }
