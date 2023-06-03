@@ -17,8 +17,8 @@ public class VentanaAsignarEmpleado extends JFrame {
     private Controlador controlador;
     private JPanel panel;
     public Aerolinea aerolinea;
-    private JComboBox<Empleado> empleadosComboBox;
-    private JComboBox<Vuelo> vuelosComboBox;
+    private JComboBox<String> empleadosComboBox;
+    private JComboBox<String> vuelosComboBox;
     private JButton asignarEmpleadoButton;
 
     public VentanaAsignarEmpleado(String title, Aerolinea a) throws HeadlessException {
@@ -33,11 +33,19 @@ public class VentanaAsignarEmpleado extends JFrame {
         panel = new JPanel();
         panel.setLayout(new FlowLayout());
         ArrayList<Empleado> empleados = aerolinea.getEmpleados();
-        Empleado[] empleadosArray = empleados.toArray(new Empleado[empleados.size()]);
+        String[] empleadosArray = new String[empleados.size()];
+        for (int i=0;i<empleadosArray.length;i++)
+        {
+            empleadosArray[i]=empleados.get(i).toString();
+        }
         empleadosComboBox = new JComboBox<>(empleadosArray);
         panel.add(empleadosComboBox);
         ArrayList<Vuelo> vuelos = aerolinea.getVuelos();
-        Vuelo[] vuelosArray = vuelos.toArray(new Vuelo[vuelos.size()]);
+        String[] vuelosArray = new String[vuelos.size()];
+        for (int i=0;i<vuelosArray.length;i++)
+        {
+            vuelosArray[i]=vuelos.get(i).toString();
+        }
         vuelosComboBox = new JComboBox<>(vuelosArray);
         panel.add(vuelosComboBox);
         asignarEmpleadoButton = new JButton("Asignar empleado");
@@ -48,17 +56,16 @@ public class VentanaAsignarEmpleado extends JFrame {
     public void setController(Controlador c){
         controlador = c;
         asignarEmpleadoButton.addActionListener(controlador);
-        System.out.println("Banderita");
     }
 
     public JButton getAsignarEmpleadoButton() {
         return asignarEmpleadoButton;
     }
 
-    public JComboBox<Vuelo> getVueslosComboBox() {
+    public JComboBox<String> getVueslosComboBox() {
         return vuelosComboBox;
     }
-    public JComboBox<Empleado> getEmpleadsComboBox() {
+    public JComboBox<String> getEmpleadsComboBox() {
         return empleadosComboBox;
     }
 
@@ -86,19 +93,19 @@ public class VentanaAsignarEmpleado extends JFrame {
         this.aerolinea = aerolinea;
     }
 
-    public JComboBox<Empleado> getEmpleadosComboBox() {
+    public JComboBox<String> getEmpleadosComboBox() {
         return empleadosComboBox;
     }
 
-    public void setEmpleadosComboBox(JComboBox<Empleado> empleadosComboBox) {
+    public void setEmpleadosComboBox(JComboBox<String> empleadosComboBox) {
         this.empleadosComboBox = empleadosComboBox;
     }
 
-    public JComboBox<Vuelo> getVuelosComboBox() {
+    public JComboBox<String> getVuelosComboBox() {
         return vuelosComboBox;
     }
 
-    public void setVuelosComboBox(JComboBox<Vuelo> vuelosComboBox) {
+    public void setVuelosComboBox(JComboBox<String> vuelosComboBox) {
         this.vuelosComboBox = vuelosComboBox;
     }
 

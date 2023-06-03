@@ -21,10 +21,8 @@ public class ControladorAsignarEmpleado extends Controlador{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("Banderita");
 
         if (e.getSource().equals(this.vista.getAsignarEmpleadoButton())){
-            System.out.println("Banderita");
             int indexEmpleado = vista.getEmpleadosComboBox().getSelectedIndex();
             int indexVuelo = vista.getVuelosComboBox().getSelectedIndex();
             Empleado empleado = vista.aerolinea.getEmpleados().get(indexEmpleado);
@@ -33,7 +31,6 @@ public class ControladorAsignarEmpleado extends Controlador{
             empleado.addVuelo(vuelo);
             JOptionPane.showMessageDialog(this.vista,"Empleado asignado", "Exito", JOptionPane.YES_OPTION);
             vista.dispose();
-            System.out.println("Banderita");
         }
     }
 

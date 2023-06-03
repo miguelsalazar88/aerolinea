@@ -61,10 +61,9 @@ public abstract class Vuelo {
     public String toString() {
         return "Vuelo{" +
                 "idVuelo='" + idVuelo + '\'' +
-                ", aerolinea=" + aerolinea +
-                ", avion=" + avion +
-                ", origen=" + origen +
-                ", destino=" + destino +
+                ", avion=" + avion.getId() +
+                ", origen=" + origen.getNombre() +
+                ", destino=" + destino.getNombre() +
                 '}';
     }
 
