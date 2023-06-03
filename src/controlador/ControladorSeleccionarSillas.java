@@ -26,7 +26,6 @@ public class ControladorSeleccionarSillas extends Controlador{
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if (e.getSource().equals(vista.getAsientoComboBox())){
             int silla = vista.getAsientoComboBox().getSelectedIndex();
             Tiquete tiquete = FactoryTiquete.crearTiquete(silla, pasajero, vuelo);
             vuelo.agregarTiquete(tiquete, silla);
@@ -35,7 +34,6 @@ public class ControladorSeleccionarSillas extends Controlador{
             String mensaje = "Tiquete " + tiquete.getIdTiquete() + " comprado exitosamente";
             JOptionPane.showMessageDialog(this.vista, mensaje, "Exito", JOptionPane.YES_OPTION);
             vista.dispose();
-        }
 
     }
 

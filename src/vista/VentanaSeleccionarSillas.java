@@ -43,4 +43,8 @@ public class VentanaSeleccionarSillas extends JFrame {
     public JComboBox<Integer> getAsientoComboBox() {
         return asientoComboBox;
     }
+
+    public JButton getSeleccionarButton() {
+        return seleccionarButton;
+    }
 }
