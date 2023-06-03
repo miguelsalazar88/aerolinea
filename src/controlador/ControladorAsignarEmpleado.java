@@ -23,14 +23,22 @@ public class ControladorAsignarEmpleado extends Controlador{
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource().equals(this.vista.getAsignarEmpleadoButton())){
-            int indexEmpleado = vista.getEmpleadosComboBox().getSelectedIndex();
-            int indexVuelo = vista.getVuelosComboBox().getSelectedIndex();
-            Empleado empleado = vista.aerolinea.getEmpleados().get(indexEmpleado);
-            Vuelo vuelo = sistema.getVuelos().get(indexVuelo);
-            vuelo.getTripulacion().add(empleado);
-            empleado.addVuelo(vuelo);
-            JOptionPane.showMessageDialog(this.vista,"Empleado asignado", "Exito", JOptionPane.YES_OPTION);
-            vista.dispose();
+
+            if(vista.aerolinea.getEmpleados().isEmpty()){
+                JOptionPane.showMessageDialog(vista, "No hay empleados", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+
+            else {
+                int indexEmpleado = vista.getEmpleadosComboBox().getSelectedIndex();
+                int indexVuelo = vista.getVuelosComboBox().getSelectedIndex();
+                Empleado empleado = vista.aerolinea.getEmpleados().get(indexEmpleado);
+                Vuelo vuelo = sistema.getVuelos().get(indexVuelo);
+                vuelo.getTripulacion().add(empleado);
+                empleado.addVuelo(vuelo);
+                JOptionPane.showMessageDialog(this.vista, "Empleado asignado", "Exito", JOptionPane.YES_OPTION);
+                vista.dispose();
+            }
         }
     }
 

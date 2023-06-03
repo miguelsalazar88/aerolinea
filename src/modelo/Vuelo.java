@@ -59,12 +59,7 @@ public abstract class Vuelo {
 
     @Override
     public String toString() {
-        return "Vuelo{" +
-                "idVuelo='" + idVuelo + '\'' +
-                ", avion=" + avion.getId() +
-                ", origen=" + origen.getNombre() +
-                ", destino=" + destino.getNombre() +
-                '}';
+        return idVuelo + ": " + origen.getNombre() + " " + destino.getNombre();
     }
 
     public void setIdVuelo(String idVuelo) {

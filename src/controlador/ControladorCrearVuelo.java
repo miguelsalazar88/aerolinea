@@ -35,17 +35,24 @@ public class ControladorCrearVuelo extends Controlador{
         int idxCiudadOrigen = vista.getOrigenComboBox().getSelectedIndex();
         int idxCiudadDestino = vista.getDestinoComboBox().getSelectedIndex();
 
-        Ciudad origen = sistema.getCiudades().get(idxCiudadOrigen);
-        Ciudad destino = sistema.getCiudades().get(idxCiudadDestino);
-
-        Vuelo vuelo = VueloFactory.crearVuelo(tipoVuelo,idVuelo,aerolinea,avion,origen,destino);
-
-        if (vuelo != null){
-            JOptionPane.showMessageDialog(this.vista,"Vuelo creado", "Exito", JOptionPane.YES_OPTION);
+        if(idxCiudadOrigen == idxCiudadDestino){
+            JOptionPane.showMessageDialog(vista, "Mismo Origen y Destino", "Error",
+                    JOptionPane.ERROR_MESSAGE);
         }
 
-        vista.getAerolinea().agregarVuelo(vuelo);
+        else {
 
+            Ciudad origen = sistema.getCiudades().get(idxCiudadOrigen);
+            Ciudad destino = sistema.getCiudades().get(idxCiudadDestino);
+
+            Vuelo vuelo = VueloFactory.crearVuelo(tipoVuelo, idVuelo, aerolinea, avion, origen, destino);
+
+            if (vuelo != null) {
+                JOptionPane.showMessageDialog(this.vista, "Vuelo creado", "Exito", JOptionPane.YES_OPTION);
+            }
+
+            vista.getAerolinea().agregarVuelo(vuelo);
+        }
 
 
     }

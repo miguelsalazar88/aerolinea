@@ -43,7 +43,7 @@ public class VentanaComprarVuelos extends Ventana{
         scrollPane = new JScrollPane(tablaVuelos);
         getContentPane().add(scrollPane,BorderLayout.CENTER);
 
-        comprarButton = new JButton("Comprar Vuelo");
+        comprarButton = new JButton("Seleccionar Vuelo");
         getContentPane().add(comprarButton, BorderLayout.SOUTH);
         pack();
 

@@ -22,11 +22,7 @@ public class Empleado extends Usuario{
 
     @Override
     public String toString() {
-        return "Empleado{" +
-                "cargo='" + cargo + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                '}';
+        return cargo + ": " + nombre + " " + apellido;
     }
 
     public void setCargo(String cargo) {

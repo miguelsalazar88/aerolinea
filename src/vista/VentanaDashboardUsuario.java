@@ -32,7 +32,7 @@ public class VentanaDashboardUsuario extends Ventana{
         nameLabel = new JLabel("Nombre: ");
         panel.add(nameLabel, BorderLayout.NORTH);
         buttonsPanel = new JPanel(new GridLayout(2,2));
-        comprarVueloButton = new JButton("Comprar Vuelo");
+        comprarVueloButton = new JButton("Comprar Tiquete");
         buttonsPanel.add(comprarVueloButton);
         verMapaButton = new JButton("Ver Mapa");
         buttonsPanel.add(verMapaButton);
