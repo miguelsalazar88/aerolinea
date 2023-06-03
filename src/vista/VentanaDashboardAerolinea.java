@@ -91,4 +91,60 @@ public class VentanaDashboardAerolinea extends Ventana{
     public JButton getAsignarEmpleadoButton() {
         return asignarEmpleadoButton;
     }
+
+    public void setAerolinea(Aerolinea aerolinea) {
+        this.aerolinea = aerolinea;
+    }
+
+    public Controlador getControlador() {
+        return controlador;
+    }
+
+    public void setControlador(Controlador controlador) {
+        this.controlador = controlador;
+    }
+
+    public JPanel getPanel() {
+        return panel;
+    }
+
+    public void setPanel(JPanel panel) {
+        this.panel = panel;
+    }
+
+    public JLabel getNameLabel() {
+        return nameLabel;
+    }
+
+    public void setNameLabel(JLabel nameLabel) {
+        this.nameLabel = nameLabel;
+    }
+
+    public JPanel getButtonsPanel() {
+        return buttonsPanel;
+    }
+
+    public void setButtonsPanel(JPanel buttonsPanel) {
+        this.buttonsPanel = buttonsPanel;
+    }
+
+    public void setVerMapaButton(JButton verMapaButton) {
+        this.verMapaButton = verMapaButton;
+    }
+
+    public void setCrearEmpleadoButton(JButton crearEmpleadoButton) {
+        this.crearEmpleadoButton = crearEmpleadoButton;
+    }
+
+    public void setCrearVueloButton(JButton crearVueloButton) {
+        this.crearVueloButton = crearVueloButton;
+    }
+
+    public void setMiItinerarioButton(JButton miItinerarioButton) {
+        this.miItinerarioButton = miItinerarioButton;
+    }
+
+    public void setAsignarEmpleadoButton(JButton asignarEmpleadoButton) {
+        this.asignarEmpleadoButton = asignarEmpleadoButton;
+    }
 }

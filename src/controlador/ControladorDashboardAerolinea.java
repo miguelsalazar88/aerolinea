@@ -37,6 +37,7 @@ public class ControladorDashboardAerolinea extends Controlador{
 
             VentanaRegistroEmpleado ventanaRegistroEmpleado =
                     new VentanaRegistroEmpleado("Registro de Empleado");
+            ventanaRegistroEmpleado.setAerolinea(this.vista.getAerolinea());
 
             ControladorRegistroEmpleado controladorRegistroEmpleado =
                     new ControladorRegistroEmpleado(sistema,ventanaRegistroEmpleado);

@@ -1,5 +1,6 @@
 package controlador;
 
+import modelo.Empleado;
 import modelo.SistemaSingleton;
 import modelo.Usuario;
 import modelo.UsuarioFactory;
@@ -48,9 +49,14 @@ public class ControladorRegistroEmpleado extends Controlador{
             }
             else{
                 //Se crea el usuario con el Factory Method y se registra en el sistema
-                Usuario usuario = UsuarioFactory.crearUsuario("empleado", username, password, nombre,
+                Usuario usuario =(Empleado) UsuarioFactory.crearUsuario("empleado", username, password, nombre,
                         apellido,cargo, Integer.parseInt(salario));
+                try{
+                    ((Empleado) usuario).setAerolinea(vista.getAerolinea());
+                }catch (Exception e1){}
+
                 sistema.registarUsuario(usuario);
+                vista.getAerolinea().agregarEmpleado((Empleado) usuario);
                 JOptionPane.showMessageDialog(this.vista,"Usuario Registrado!","Success",JOptionPane.OK_OPTION);
                 this.vista.dispose();
             }

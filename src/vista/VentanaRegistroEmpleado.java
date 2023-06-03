@@ -1,6 +1,7 @@
 package vista;
 
 import controlador.Controlador;
+import modelo.Aerolinea;
 import modelo.Utils;
 
 import javax.swing.*;
@@ -10,7 +11,7 @@ public class VentanaRegistroEmpleado extends Ventana {
 
     private JPanel panel;
     private JLabel cargoLabel;
-
+    private Aerolinea aerolinea;
     private JLabel usernameLabel;
     private JLabel passwordLabel;
     private JLabel nombreLabel;
@@ -134,5 +135,29 @@ public class VentanaRegistroEmpleado extends Ventana {
 
     public JButton getRegistrarBtn() {
         return registrarBtn;
+    }
+
+    public JPanel getPanel() {
+        return panel;
+    }
+
+    public void setPanel(JPanel panel) {
+        this.panel = panel;
+    }
+
+    public JLabel getCargoLabel() {
+        return cargoLabel;
+    }
+
+    public void setCargoLabel(JLabel cargoLabel) {
+        this.cargoLabel = cargoLabel;
+    }
+
+    public Aerolinea getAerolinea() {
+        return aerolinea;
+    }
+
+    public void setAerolinea(Aerolinea aerolinea) {
+        this.aerolinea = aerolinea;
     }
 }

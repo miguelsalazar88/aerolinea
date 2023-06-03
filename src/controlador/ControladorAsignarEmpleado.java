@@ -31,6 +31,7 @@ public class ControladorAsignarEmpleado extends Controlador{
             empleado.addVuelo(vuelo);
             JOptionPane.showMessageDialog(this.vista,"Empleado asignado", "Exito", JOptionPane.YES_OPTION);
             vista.dispose();
+            System.out.println("Banderita");
         }
     }
 

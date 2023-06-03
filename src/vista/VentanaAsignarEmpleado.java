@@ -27,7 +27,6 @@ public class VentanaAsignarEmpleado extends JFrame {
         initcomponents();
         pack();
         setVisible(true);
-        //setSize(600,900);
     }
 
     public void initcomponents() {
