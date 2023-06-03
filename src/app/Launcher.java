@@ -2,6 +2,7 @@ package app;
 
 import controlador.ControladorVentanaPrincipal;
 import modelo.*;
+import vista.VentanaCrearVuelo;
 import vista.VentanaPrincipal;
 
 

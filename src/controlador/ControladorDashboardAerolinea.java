@@ -48,10 +48,16 @@ public class ControladorDashboardAerolinea extends Controlador{
 
         if(e.getSource().equals(vista.getCrearVueloButton())){
 
+            VentanaCrearVuelo ventanaCrearVuelo = new VentanaCrearVuelo(vista.getAerolinea());
+            ControladorCrearVuelo controladorCrearVuelo =
+                    new ControladorCrearVuelo(sistema, ventanaCrearVuelo);
+
         }
         if(e.getSource().equals(vista.getMiItinerarioButton())){
             VentanaItinerarioAerolinea ventanaItinerarioAerolinea =
                     new VentanaItinerarioAerolinea("Mi Itinerario", vista.getAerolinea());
+
+
         }
 
 
