@@ -19,7 +19,7 @@ public class VentanaAsignarEmpleado extends JFrame {
     public Aerolinea aerolinea;
     private JComboBox<Empleado> empleadosComboBox;
     private JComboBox<Vuelo> vuelosComboBox;
-    private JButton asignarButton;
+    private JButton asignarEmpleadoButton;
 
     public VentanaAsignarEmpleado(String title, Aerolinea a) throws HeadlessException {
         this.aerolinea=a;
@@ -40,18 +40,19 @@ public class VentanaAsignarEmpleado extends JFrame {
         Vuelo[] vuelosArray = vuelos.toArray(new Vuelo[vuelos.size()]);
         vuelosComboBox = new JComboBox<>(vuelosArray);
         panel.add(vuelosComboBox);
-        asignarButton = new JButton("Asignar empleado");
-        panel.add(asignarButton);
+        asignarEmpleadoButton = new JButton("Asignar empleado");
+        panel.add(asignarEmpleadoButton);
         getContentPane().add(panel);
     }
 
     public void setController(Controlador c){
         controlador = c;
-        asignarButton.addActionListener(controlador);
+        asignarEmpleadoButton.addActionListener(controlador);
+        System.out.println("Banderita");
     }
 
-    public JButton getAsignarButton() {
-        return asignarButton;
+    public JButton getAsignarEmpleadoButton() {
+        return asignarEmpleadoButton;
     }
 
     public JComboBox<Vuelo> getVueslosComboBox() {
@@ -102,7 +103,7 @@ public class VentanaAsignarEmpleado extends JFrame {
     }
 
     public void setAsignarButton(JButton asignarButton) {
-        this.asignarButton = asignarButton;
+        this.asignarEmpleadoButton = asignarButton;
     }
 
 
