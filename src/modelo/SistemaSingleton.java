@@ -90,6 +90,17 @@ public class SistemaSingleton {
         return vuelos;
     }
 
+    public ArrayList<Vuelo> getVuelos(){
+        ArrayList<Vuelo> vuelos = new ArrayList<Vuelo>();
+        for (Aerolinea a :aerolineas) {
+            for (Vuelo v: a.getVuelos()) {
+                    vuelos.add(v);
+
+            }
+        }
+        return vuelos;
+    }
+
 
     // Getters y Setters
 

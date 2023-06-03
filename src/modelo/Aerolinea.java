@@ -17,6 +17,10 @@ public class Aerolinea {
         this.vuelos = new ArrayList<Vuelo>();
     }
 
+    public ArrayList<Vuelo> getVuelos() {
+        return vuelos;
+    }
+
     public void agregarAvion(Avion a){
         this.aviones.add(a);
     }

@@ -117,9 +117,9 @@ public class MockCreator {
         ArrayList<VueloComercial> vuelos = new ArrayList<VueloComercial>();
 
 
-        for (int i = 0; i < 10; i++) {
-            String idVuelo = String.valueOf(Utils.rnd.nextInt(1000));
+        for (int i = 0; i < 3; i++) {
             AvionPasajeros avion = (AvionPasajeros) aviones.get(Utils.rnd.nextInt(aviones.size()));
+            String idVuelo = String.valueOf(avion.getTipo() + Utils.rnd.nextInt(1000));
             Ciudad origen = ciudades.get(Utils.rnd.nextInt(ciudades.size()));
             Ciudad destino;
             do{
@@ -135,9 +135,9 @@ public class MockCreator {
         ArrayList<VueloCarga> vuelos = new ArrayList<VueloCarga>();
 
 
-        for (int i = 0; i < 10; i++) {
-            String idVuelo = String.valueOf(Utils.rnd.nextInt(1000));
+        for (int i = 0; i < 3; i++) {
             AvionCarga avion = (AvionCarga) aviones.get(Utils.rnd.nextInt(aviones.size()));
+            String idVuelo = String.valueOf(avion.getTipo() + Utils.rnd.nextInt(1000));
             Ciudad origen = ciudades.get(Utils.rnd.nextInt(ciudades.size()));
             Ciudad destino;
             do{

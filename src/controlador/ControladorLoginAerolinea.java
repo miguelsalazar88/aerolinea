@@ -40,6 +40,8 @@ public class ControladorLoginAerolinea extends Controlador{
         else{
             VentanaDashboardAerolinea ventanaDashboardAerolinea =
                     new VentanaDashboardAerolinea("Dashboard", aerolinea);
+            ControladorDashboardAerolinea controladorDashboardAerolinea =
+                    new ControladorDashboardAerolinea(sistema, ventanaDashboardAerolinea);
 
         }
     }

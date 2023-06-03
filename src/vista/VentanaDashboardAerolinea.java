@@ -69,7 +69,7 @@ public class VentanaDashboardAerolinea extends Ventana{
         nameLabel.setText(aerolinea.getNombre());
     }
 
-    public Aerolinea getUsuario() {
+    public Aerolinea getAerolinea() {
         return aerolinea;
     }
 
@@ -79,5 +79,17 @@ public class VentanaDashboardAerolinea extends Ventana{
 
     public JButton getMiItinerarioButton() {
         return miItinerarioButton;
+    }
+
+    public JButton getCrearEmpleadoButton() {
+        return crearEmpleadoButton;
+    }
+
+    public JButton getCrearVueloButton() {
+        return crearVueloButton;
+    }
+
+    public JButton getAsignarEmpleadoButton() {
+        return asignarEmpleadoButton;
     }
 }
